@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-camadel-black text-camadel-silverHi;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Respeita a preferência do usuário por redução de movimento */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Foco de teclado visível — acessibilidade */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid theme("colors.camadel.red");
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Wordmark / headline com gradiente metálico (réplica do texto da logo) */
+  .text-metal {
+    background-image: theme("backgroundImage.metal-text");
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
