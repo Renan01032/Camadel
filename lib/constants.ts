@@ -25,6 +25,21 @@ export const CATALOG = [
   { id: "fixacao", label: "Acessórios e fixação", title: "Segurança em cada detalhe", items: ["Parafusos", "Porcas e arruelas", "Buchas e âncoras", "Pregos e grampos", "Chumbadores", "Abraçadeiras", "Barras roscadas", "Cabos e correntes"] },
 ] as const;
 
+export const PRODUCTS = [
+  { name: "Furadeira de Impacto", brand: "Makita", category: "Ferramentas elétricas", image: "/products/furadeira.png" },
+  { name: "Serra Circular", brand: "Bosch", category: "Ferramentas elétricas", image: "/products/serra-circular.png" },
+  { name: "Martelo Unha", brand: "Vonder", category: "Ferramentas manuais", image: "/products/martelo.png" },
+  { name: "Nível de Bolha", brand: "MTX", category: "Ferramentas manuais", image: "/products/nivel.png" },
+  { name: "Disco de Corte", brand: "Norton", category: "Abrasivos", image: "/products/disco-corte.png" },
+  { name: "Capacete de Segurança", brand: "Camadel", category: "EPIs", image: "/products/capacete.png" },
+  { name: "Luvas de Proteção", brand: "Vonder", category: "EPIs", image: "/products/luvas.png" },
+  { name: "Botina de Segurança", brand: "Camadel", category: "EPIs", image: "/products/botina.png" },
+  { name: "Cimento CP-II", brand: "Votoran", category: "Construção civil", image: "/products/cimento.png" },
+  { name: "Betoneira 150L", brand: "Vonder", category: "Construção civil", image: "/products/betoneira.png" },
+  { name: "Carrinho de Mão", brand: "Camadel", category: "Construção civil", image: "/products/carrinho.png" },
+  { name: "Parafusos e Fixação", brand: "Ciser", category: "Acessórios e fixação", image: "/products/parafusos.png" },
+] as const;
+
 export const NAV_LINKS = [{ label: "Catálogo", href: "#catalogo" }, { label: "Contato", href: "#contato" }] as const;
 export const HERO_STATS = [{ number: "ABC", label: "Paulista e região" }, { number: "100%", label: "foco na sua obra" }] as const;
 export const DIFERENCIAIS = [
