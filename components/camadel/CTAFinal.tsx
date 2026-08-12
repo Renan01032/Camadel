@@ -2,11 +2,17 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-import { WHATSAPP_LINK } from "@/lib/constants";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
-export function CTAFinal() {
+export function CTAFinal({
+  title = "Pronto para elevar o nível da sua construção?",
+  text = "Fale agora com um especialista Camadel e monte a lista ideal de materiais para o seu projeto.",
+}: {
+  title?: string;
+  text?: string;
+}) {
   return (
-    <section id="contato" className="bg-camadel-black py-20 sm:py-24">
+    <section className="bg-camadel-black py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -23,22 +29,16 @@ export function CTAFinal() {
             }}
           />
           <h2 className="relative mb-4 font-display text-2xl font-semibold text-camadel-silverHi sm:text-4xl">
-            Pronto para elevar o nível da sua construção?
+            {title}
           </h2>
           <p className="relative mx-auto mb-9 max-w-lg text-sm text-camadel-muted sm:text-base">
-            Fale agora com um especialista Camadel e monte o kit ideal para o
-            seu projeto.
+            {text}
           </p>
-          {/*
-            Nota (ADR-009): fechamento de negociação B2B ocorre pelo número
-            único do WhatsApp Business da Camadel — não há chat dentro da
-            plataforma. Este CTA deve sempre apontar para WHATSAPP_LINK.
-          */}
           <a
-            href={WHATSAPP_LINK}
+            href={getWhatsAppUrl("Olá, Camadel! Gostaria de solicitar um orçamento para a minha obra.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center gap-2 rounded-sm bg-camadel-red px-8 py-4 font-body text-sm font-semibold tracking-wide text-camadel-black transition-all hover:bg-camadel-redDark hover:text-camadel-silverHi hover:shadow-red-glow"
+            className="relative inline-flex items-center gap-2 rounded-sm bg-camadel-red px-8 py-4 font-body text-sm font-semibold tracking-wide text-white transition-all hover:bg-camadel-redDark hover:shadow-red-glow"
           >
             <MessageCircle size={18} />
             Falar no WhatsApp

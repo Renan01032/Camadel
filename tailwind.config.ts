@@ -47,9 +47,19 @@ const config: Config = {
             transform: "scale(1.04)",
           },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        slideUpFade: {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "pulse-glow": "pulseGlow 2.6s ease-in-out infinite",
+        marquee: "marquee 28s linear infinite",
+        "slide-up-fade": "slideUpFade 0.25s ease-out",
       },
     },
   },

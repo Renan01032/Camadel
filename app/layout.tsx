@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Oswald, Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/camadel/Header";
+import { Footer } from "@/components/camadel/Footer";
+import { QuoteWidget } from "@/components/camadel/QuoteWidget";
+import { QuoteProvider } from "@/lib/quote-context";
 
 // Display: réplica do peso/estilo condensado da logo, usado em headlines e wordmark.
 const oswald = Oswald({
@@ -33,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | Camadel Ferramentas",
   },
   description:
-    "A Camadel fornece ferramentas, EPIs, abrasivos, fixação e soluções completas para profissionais da construção no ABC Paulista e região.",
+    "A Camadel fornece ferramentas, EPIs, abrasivos, fixação e soluções completas para profissionais da construção no ABC Paulista e região. Catálogo técnico para orçamento — sem venda direta pelo site.",
   keywords: [
     "ferramentas para construção",
     "ferramentas elétricas",
@@ -41,18 +45,13 @@ export const metadata: Metadata = {
     "Camadel",
   ],
   openGraph: {
-    title: "Camadel | Ferramentas Premium para Construção",
+    title: "Camadel | Ferramentas para Construção Civil",
     description:
-      "Precisão que constrói. Conheça a linha premium de ferramentas Camadel para profissionais exigentes.",
+      "Precisão que constrói. Catálogo técnico Camadel para orçamento de ferramentas, EPIs, abrasivos e fixação.",
     url: "https://www.camadel.com.br",
     siteName: "Camadel Ferramentas",
     locale: "pt_BR",
     type: "website",
-    // TODO(marketing): substituir por uma imagem Open Graph dedicada (1200x630px)
-    images: ["/camadel-logo.jpg"],
-  },
-  icons: {
-    icon: "/camadel-logo.jpg",
   },
 };
 
@@ -70,7 +69,14 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${oswald.variable} ${roboto.variable} ${robotoMono.variable}`}
     >
-      <body className="min-h-screen font-body">{children}</body>
+      <body className="min-h-screen font-body">
+        <QuoteProvider>
+          <Header />
+          {children}
+          <Footer />
+          <QuoteWidget />
+        </QuoteProvider>
+      </body>
     </html>
   );
 }

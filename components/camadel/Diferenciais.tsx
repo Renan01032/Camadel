@@ -23,7 +23,7 @@ export function Diferenciais() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {DIFERENCIAIS.map((item, i) => {
             const Icon = ICON_MAP[item.icon];
             return (
@@ -32,7 +32,7 @@ export function Diferenciais() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4 }}
                 className="h-full rounded-sm border border-camadel-steel bg-camadel-charcoal p-6 transition-colors hover:border-camadel-red hover:shadow-lg"
               >
