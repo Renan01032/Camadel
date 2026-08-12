@@ -29,11 +29,11 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.camadel.com.br"),
   title: {
-    default: "Camadel | Ferramentas Premium para Construção",
+    default: "Camadel | Ferramentas para Construção Civil",
     template: "%s | Camadel Ferramentas",
   },
   description:
-    "Ferramentas robustas de precisão para profissionais da construção civil. Durabilidade extrema, engenharia de ponta e suporte especializado. Peça um orçamento expresso.",
+    "A Camadel fornece ferramentas, EPIs, abrasivos, fixação e soluções completas para profissionais da construção no ABC Paulista e região.",
   keywords: [
     "ferramentas para construção",
     "ferramentas elétricas",
