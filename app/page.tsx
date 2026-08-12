@@ -1,25 +1,5 @@
-import {
-  Header,
-  Hero,
-  Diferenciais,
-  Categorias,
-  Depoimentos,
-  CTAFinal,
-  Footer,
-} from "@/components/camadel";
+import { LeadSite } from "@/components/camadel/LeadSite";
 
 export default function HomePage() {
-  return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Diferenciais />
-        <Categorias />
-        <Depoimentos />
-        <CTAFinal />
-      </main>
-      <Footer />
-    </>
-  );
+  return <LeadSite />;
 }

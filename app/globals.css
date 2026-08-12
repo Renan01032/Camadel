@@ -12,8 +12,24 @@
   }
 
   body {
-    @apply bg-camadel-black text-camadel-silverHi;
+    @apply bg-camadel-black text-camadel-silverHi font-body;
     -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    @apply bg-camadel-red text-white;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.28em] text-camadel-red;
+  }
+
+  .section-title {
+    @apply mt-3 font-display text-5xl font-bold uppercase leading-none text-white sm:text-6xl;
+  }
+
+  .section-title span {
+    @apply text-camadel-red;
   }
 
   /* Respeita a preferência do usuário por redução de movimento */
