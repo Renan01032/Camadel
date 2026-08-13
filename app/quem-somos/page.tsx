@@ -44,7 +44,7 @@ export default function QuemSomosPage() {
             href={getWhatsAppUrl("Olá, Camadel! Gostaria de falar com um consultor sobre a minha obra.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-9 inline-flex items-center gap-2 rounded-sm bg-camadel-red px-7 py-3.5 font-body text-sm font-semibold tracking-wide text-white transition-all hover:bg-camadel-redDark hover:shadow-red-glow"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-camadel-red px-7 py-3.5 font-body text-sm font-semibold tracking-wide text-white shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0"
           >
             <MessageCircle size={16} />
             Falar com Consultor Agora

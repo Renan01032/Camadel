@@ -25,7 +25,7 @@ export function CategorySubsections({ category }: { category: CatalogCategory })
         <button
           type="button"
           onClick={() => (allSelected ? removeMany(allLabels) : addMany(allLabels))}
-          className="inline-flex items-center gap-2 rounded-sm border border-camadel-red px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-camadel-red transition-colors hover:bg-camadel-red hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full border border-camadel-red px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-camadel-red transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-red hover:text-white active:translate-y-0"
         >
           <Layers size={14} />
           {allSelected ? "Remover Linha Inteira" : "Adicionar Linha Inteira à Cotação"}
@@ -40,7 +40,7 @@ export function CategorySubsections({ category }: { category: CatalogCategory })
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: (i % 6) * 0.04, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col justify-between gap-4 rounded-sm border border-camadel-steel bg-camadel-charcoal p-5"
+            className="flex flex-col justify-between gap-4 rounded-xl border border-camadel-steel bg-camadel-charcoal p-5"
           >
             <div>
               <h3 className="mb-2 font-display text-base font-semibold text-camadel-silverHi">

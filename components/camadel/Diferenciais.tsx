@@ -34,7 +34,7 @@ export function Diferenciais() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4 }}
-                className="h-full rounded-sm border border-camadel-steel bg-camadel-charcoal p-6 transition-colors hover:border-camadel-red hover:shadow-lg"
+                className="h-full rounded-xl border border-camadel-steel bg-camadel-charcoal p-6 transition-colors hover:border-camadel-red hover:shadow-lg"
               >
                 <Icon size={26} className="text-camadel-red" strokeWidth={1.75} />
                 <h3 className="mb-2 mt-4 font-display text-base font-medium tracking-wide text-camadel-silverHi">

@@ -117,7 +117,7 @@ export function CoverageRadar({ className = "" }: { className?: string }) {
         style={{ left: "50%", top: "52%" }}
       >
         <MapPin size={22} className="-translate-y-6 text-camadel-red drop-shadow" />
-        <span className="rounded-sm border border-camadel-red/40 bg-camadel-black/80 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-camadel-silverHi">
+        <span className="rounded-xl border border-camadel-red/40 bg-camadel-black/80 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-camadel-silverHi">
           São Paulo — SP
         </span>
       </div>

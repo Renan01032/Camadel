@@ -17,7 +17,7 @@ export function QuoteWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[min(90vw,360px)] overflow-hidden rounded-sm border border-camadel-red bg-camadel-charcoal shadow-2xl shadow-black/60"
+            className="w-[min(90vw,360px)] overflow-hidden rounded-xl border border-camadel-red bg-camadel-charcoal shadow-2xl shadow-black/60"
           >
             <div className="flex items-center justify-between border-b border-camadel-steel bg-camadel-charcoal2 px-4 py-3">
               <div>
@@ -32,7 +32,7 @@ export function QuoteWidget() {
                 type="button"
                 onClick={close}
                 aria-label="Fechar"
-                className="rounded-sm p-1.5 text-camadel-muted transition-colors hover:bg-camadel-black hover:text-camadel-silverHi"
+                className="rounded-xl p-1.5 text-camadel-muted transition-colors hover:bg-camadel-black hover:text-camadel-silverHi"
               >
                 <X size={16} />
               </button>
@@ -59,7 +59,7 @@ export function QuoteWidget() {
                   <button
                     type="button"
                     onClick={clear}
-                    className="inline-flex items-center gap-1.5 rounded-sm px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-camadel-muted transition-colors hover:text-camadel-red"
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-camadel-muted transition-colors hover:text-camadel-red"
                   >
                     <Trash2 size={13} />
                     Limpar
@@ -68,7 +68,7 @@ export function QuoteWidget() {
                     href={getQuoteWhatsAppUrl(items)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-1 items-center justify-center gap-2 rounded-sm bg-camadel-red px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white transition-colors hover:bg-camadel-redDark"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-full bg-camadel-red px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark active:translate-y-0"
                   >
                     <MessageCircle size={14} />
                     Enviar no WhatsApp
@@ -85,7 +85,7 @@ export function QuoteWidget() {
                   href={getWhatsAppUrl("Olá, Camadel! Gostaria de solicitar um orçamento para a minha obra.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-sm bg-camadel-red px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white transition-colors hover:bg-camadel-redDark"
+                  className="flex items-center justify-center gap-2 rounded-full bg-camadel-red px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark active:translate-y-0"
                 >
                   <MessageCircle size={14} />
                   Falar no WhatsApp

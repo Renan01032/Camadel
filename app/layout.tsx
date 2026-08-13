@@ -1,34 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Oswald, Roboto, Roboto_Mono } from "next/font/google";
+import "@fontsource/oswald/500.css";
+import "@fontsource/oswald/600.css";
+import "@fontsource/oswald/700.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto-mono/400.css";
+import "@fontsource/roboto-mono/500.css";
 import "./globals.css";
 import { Header } from "@/components/camadel/Header";
 import { Footer } from "@/components/camadel/Footer";
 import { QuoteWidget } from "@/components/camadel/QuoteWidget";
 import { QuoteProvider } from "@/lib/quote-context";
 
-// Display: réplica do peso/estilo condensado da logo, usado em headlines e wordmark.
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-oswald",
-  display: "swap",
-});
-
-// Corpo de texto — legibilidade neutra, tom técnico.
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-roboto",
-  display: "swap",
-});
-
-// Uso pontual em eyebrows/specs — reforça o tom "engenharia de precisão".
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-roboto-mono",
-  display: "swap",
-});
+// Fontes auto-hospedadas via @fontsource (sem dependência de rede em tempo
+// de build para fonts.googleapis.com — mais robusto para CI/CD). As
+// variáveis CSS (--font-oswald etc.) são declaradas em app/globals.css e
+// consumidas pelo Tailwind (ver tailwind.config.ts -> theme.fontFamily).
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.camadel.com.br"),
@@ -65,10 +52,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${oswald.variable} ${roboto.variable} ${robotoMono.variable}`}
-    >
+    <html lang="pt-BR">
       <body className="min-h-screen font-body">
         <QuoteProvider>
           <Header />

@@ -42,6 +42,11 @@ import {
   ArrowRight,
   ArrowUpRight,
   Trash2,
+  Drill,
+  Footprints,
+  RotateCw,
+  Container,
+  Package,
   type LucideIcon,
 } from "lucide-react";
 
@@ -93,4 +98,9 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   ArrowRight,
   ArrowUpRight,
   Trash2,
+  Drill,
+  Footprints,
+  RotateCw,
+  Container,
+  Package,
 };

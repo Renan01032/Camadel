@@ -14,7 +14,7 @@ export function ApplicationsRow({ applications }: { applications: readonly Catal
             return (
               <div
                 key={app.text}
-                className="flex flex-col items-center gap-2 rounded-sm border border-camadel-steel px-3 py-5 text-center"
+                className="flex flex-col items-center gap-2 rounded-xl border border-camadel-steel px-3 py-5 text-center"
               >
                 <Icon size={22} className="text-camadel-red" strokeWidth={1.75} />
                 <span className="text-xs text-camadel-muted">{app.text}</span>

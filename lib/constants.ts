@@ -167,6 +167,43 @@ export const BRANDS = [
   "Ancora",
 ] as const;
 
+// Logotipos reais (recortados do material fornecido) para as marcas
+// parceiras "principais", presentes em todos os panfletos. As demais marcas
+// seguem como wordmark estilizado até termos os arquivos de logo delas.
+export const BRAND_LOGOS: Partial<Record<(typeof BRANDS)[number], string>> = {
+  Vonder: "/brands/vonder.png",
+  Bosch: "/brands/bosch.png",
+  Makita: "/brands/makita.png",
+  MTX: "/brands/mtx.png",
+};
+
+// -----------------------------------------------------------------------
+// Home — Vitrine "Produtos em Destaque"
+// -----------------------------------------------------------------------
+
+export type FeaturedProduct = {
+  name: string;
+  brand: string;
+  icon: string;
+  categorySlug: string;
+  categoryLabel: string;
+};
+
+export const FEATURED_PRODUCTS: readonly FeaturedProduct[] = [
+  { name: "Furadeira de Impacto", brand: "Makita", icon: "Drill", categorySlug: "ferramentas-eletricas", categoryLabel: "Ferramentas Elétricas" },
+  { name: "Serra Circular", brand: "Bosch", icon: "CircleDot", categorySlug: "ferramentas-eletricas", categoryLabel: "Ferramentas Elétricas" },
+  { name: "Martelo Unha", brand: "Vonder", icon: "Hammer", categorySlug: "ferramentas-manuais", categoryLabel: "Ferramentas Manuais" },
+  { name: "Nível de Bolha", brand: "MTX", icon: "Ruler", categorySlug: "ferramentas-manuais", categoryLabel: "Ferramentas Manuais" },
+  { name: "Disco de Corte", brand: "Norton", icon: "Disc3", categorySlug: "abrasivos", categoryLabel: "Abrasivos" },
+  { name: "Capacete de Segurança", brand: "Camadel", icon: "HardHat", categorySlug: "epis", categoryLabel: "EPI's" },
+  { name: "Luvas de Proteção", brand: "Vonder", icon: "Hand", categorySlug: "epis", categoryLabel: "EPI's" },
+  { name: "Botina de Segurança", brand: "Camadel", icon: "Footprints", categorySlug: "epis", categoryLabel: "EPI's" },
+  { name: "Cimento CP-II", brand: "Votoran", icon: "Package", categorySlug: "construcao-civil", categoryLabel: "Construção Civil" },
+  { name: "Betoneira 150L", brand: "Vonder", icon: "RotateCw", categorySlug: "construcao-civil", categoryLabel: "Construção Civil" },
+  { name: "Carrinho de Mão", brand: "Camadel", icon: "Container", categorySlug: "construcao-civil", categoryLabel: "Construção Civil" },
+  { name: "Parafusos e Fixação", brand: "Ciser", icon: "Nut", categorySlug: "acessorios-fixacao", categoryLabel: "Acessórios e Fixação" },
+] as const;
+
 // -----------------------------------------------------------------------
 // Catálogo — categorias e linhas completas
 // -----------------------------------------------------------------------

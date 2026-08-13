@@ -19,7 +19,7 @@ export function CTAFinal({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-sm border border-camadel-red bg-gradient-to-br from-camadel-charcoal2 to-camadel-black px-8 py-14 text-center sm:px-16 sm:py-16"
+          className="relative overflow-hidden rounded-xl border border-camadel-red bg-gradient-to-br from-camadel-charcoal2 to-camadel-black px-8 py-14 text-center sm:px-16 sm:py-16"
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-50"
@@ -38,7 +38,7 @@ export function CTAFinal({
             href={getWhatsAppUrl("Olá, Camadel! Gostaria de solicitar um orçamento para a minha obra.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center gap-2 rounded-sm bg-camadel-red px-8 py-4 font-body text-sm font-semibold tracking-wide text-white transition-all hover:bg-camadel-redDark hover:shadow-red-glow"
+            className="relative inline-flex items-center gap-2 rounded-full bg-camadel-red px-8 py-4 font-body text-sm font-semibold tracking-wide text-white shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0"
           >
             <MessageCircle size={18} />
             Falar no WhatsApp

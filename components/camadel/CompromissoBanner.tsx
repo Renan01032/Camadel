@@ -11,7 +11,7 @@ export function CompromissoBanner({ className = "" }: { className?: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex items-start gap-4 rounded-sm border border-camadel-red bg-camadel-charcoal2 p-6 sm:items-center sm:p-7 ${className}`}
+      className={`flex items-start gap-4 rounded-xl border border-camadel-red bg-camadel-charcoal2 p-6 sm:items-center sm:p-7 ${className}`}
     >
       <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-camadel-red text-camadel-red">
         <Target size={20} strokeWidth={1.75} />

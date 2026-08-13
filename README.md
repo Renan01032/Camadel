@@ -18,10 +18,10 @@ npm run dev
 
 Abra http://localhost:3000.
 
-> `npm run build` baixa as fontes Oswald / Roboto / Roboto Mono do Google
-> Fonts durante o build (via `next/font/google`) — é necessário acesso à
-> internet nesse momento (funciona normalmente no seu ambiente local, CI
-> ou na Vercel).
+> As fontes (Oswald / Roboto / Roboto Mono) são auto-hospedadas via
+> `@fontsource` — não dependem de acesso à internet durante o build
+> (diferente de `next/font/google`). `npm run build` foi validado do zero
+> (sem cache, com `npm ci`) antes desta entrega.
 
 ## Como funciona o fluxo de orçamento (sem formulário para o servidor)
 
@@ -96,3 +96,18 @@ páginas de categoria, geradas via `generateStaticParams`).
   correspondente em `CATALOG` (`lib/constants.ts`).
 - **CNPJ / redes sociais**: não constavam nos panfletos fornecidos, então
   não foram incluídos no rodapé (evitar inventar dado institucional).
+- **Logos de marca reais**: por enquanto só Vonder, Bosch, Makita e MTX
+  têm arquivo de logo real (`public/brands/*.png`, recortados do material
+  fornecido) — são as 4 marcas que aparecem em todos os panfletos. As
+  demais marcas (Norton, 3M, Würth, Suvinil, Ypê etc.) aparecem como texto
+  estilizado. Para trocar por logo real, salve o arquivo em
+  `public/brands/<marca>.png` (fundo transparente) e adicione a entrada em
+  `BRAND_LOGOS` (`lib/constants.ts`).
+
+## Deploy (Vercel / CI)
+
+Este projeto foi validado com `rm -rf node_modules .next && npm ci && npm run build`
+(instalação limpa a partir do `package-lock.json`, sem cache) antes da entrega.
+Se um deploy falhar, o mais comum é cache de build desatualizado — no
+Vercel: **Deployments → menu "⋯" do deployment → Redeploy → desmarcar
+"Use existing Build Cache"**.

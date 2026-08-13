@@ -1,6 +1,7 @@
 import { Hero } from "@/components/camadel/Hero";
 import { Diferenciais } from "@/components/camadel/Diferenciais";
 import { Categorias } from "@/components/camadel/Categorias";
+import { FeaturedProducts } from "@/components/camadel/FeaturedProducts";
 import { BrandsMarquee } from "@/components/camadel/BrandsMarquee";
 import { CompromissoBanner } from "@/components/camadel/CompromissoBanner";
 import { CTAFinal } from "@/components/camadel/CTAFinal";
@@ -15,6 +16,7 @@ export default function HomePage() {
       </div>
       <Diferenciais />
       <Categorias />
+      <FeaturedProducts />
       <BrandsMarquee />
       <section className="bg-camadel-black py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-8">

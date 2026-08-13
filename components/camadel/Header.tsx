@@ -38,13 +38,13 @@ export function Header() {
               Catálogo
               <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
             </button>
-            <div className="invisible absolute left-1/2 top-full z-50 w-[560px] -translate-x-1/2 translate-y-1 rounded-sm border border-camadel-steel bg-camadel-charcoal p-3 opacity-0 shadow-2xl shadow-black/60 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="invisible absolute left-1/2 top-full z-50 w-[560px] -translate-x-1/2 translate-y-1 rounded-xl border border-camadel-steel bg-camadel-charcoal p-3 opacity-0 shadow-2xl shadow-black/60 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               <div className="grid grid-cols-2 gap-1">
                 {CATALOG.map((category) => (
                   <Link
                     key={category.slug}
                     href={`/catalogo/${category.slug}`}
-                    className="rounded-sm px-3 py-2.5 text-sm text-camadel-silverHi transition-colors hover:bg-camadel-black hover:text-camadel-red"
+                    className="rounded-lg px-3 py-2.5 text-sm text-camadel-silverHi transition-colors hover:bg-camadel-black hover:text-camadel-red"
                   >
                     {category.navLabel}
                   </Link>
@@ -52,7 +52,7 @@ export function Header() {
               </div>
               <Link
                 href="/catalogo"
-                className="mt-2 block rounded-sm border-t border-camadel-steel px-3 pt-3 text-xs font-semibold uppercase tracking-wide text-camadel-red"
+                className="mt-2 block rounded-lg border-t border-camadel-steel px-3 pt-3 text-xs font-semibold uppercase tracking-wide text-camadel-red"
               >
                 Ver catálogo completo →
               </Link>
@@ -71,7 +71,7 @@ export function Header() {
             href={quoteHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-sm bg-camadel-red px-4 py-2.5 font-body text-sm font-semibold tracking-wide text-white transition-all hover:bg-camadel-redDark hover:shadow-red-glow sm:inline-flex"
+            className="hidden items-center gap-2 rounded-full bg-camadel-red px-5 py-2.5 font-body text-sm font-semibold tracking-wide text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0 sm:inline-flex"
           >
             <MessageCircle size={16} />
             {count > 0 ? `Enviar Orçamento (${count})` : "Solicitar Orçamento"}
@@ -143,7 +143,7 @@ export function Header() {
             href={quoteHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center justify-center gap-2 rounded-sm bg-camadel-red px-4 py-3 font-body text-sm font-semibold text-white"
+            className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-camadel-red px-4 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-camadel-redDark active:scale-[0.98]"
             onClick={() => setMobileOpen(false)}
           >
             <MessageCircle size={16} />

@@ -37,7 +37,7 @@ export function Categorias() {
               >
                 <Link
                   href={`/catalogo/${category.slug}`}
-                  className="group block overflow-hidden rounded-sm border border-camadel-steel transition-colors hover:border-camadel-red"
+                  className="group block overflow-hidden rounded-xl border border-camadel-steel transition-colors hover:border-camadel-red"
                 >
                   <div className="relative flex h-40 items-center justify-center overflow-hidden bg-gradient-to-br from-camadel-charcoal2 to-camadel-black">
                     <div className="absolute inset-0 bg-carbon-weave opacity-40" />

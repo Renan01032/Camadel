@@ -38,7 +38,7 @@ export default function CatalogoPage() {
               <Link
                 key={category.slug}
                 href={`/catalogo/${category.slug}`}
-                className="group flex flex-col justify-between gap-6 rounded-sm border border-camadel-steel bg-camadel-charcoal p-7 transition-colors hover:border-camadel-red"
+                className="group flex flex-col justify-between gap-6 rounded-xl border border-camadel-steel bg-camadel-charcoal p-7 transition-colors hover:border-camadel-red"
               >
                 <div>
                   <div className="mb-5 flex size-14 items-center justify-center rounded-full border border-camadel-steel text-camadel-red transition-colors group-hover:border-camadel-red">

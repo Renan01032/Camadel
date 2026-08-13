@@ -30,7 +30,7 @@ export default function AreaDeAtuacaoPage() {
                 {AREA_ATUACAO.paragraph}
               </p>
 
-              <div className="mt-8 rounded-sm border border-camadel-red bg-camadel-charcoal2 p-6">
+              <div className="mt-8 rounded-xl border border-camadel-red bg-camadel-charcoal2 p-6">
                 <p className="font-display text-lg font-semibold uppercase text-camadel-silverHi">
                   {AREA_ATUACAO.focusBox.title}
                 </p>
@@ -38,14 +38,14 @@ export default function AreaDeAtuacaoPage() {
               </div>
             </div>
 
-            <CoverageRadar className="h-72 rounded-sm border border-camadel-steel bg-camadel-charcoal sm:h-96" />
+            <CoverageRadar className="h-72 rounded-xl border border-camadel-steel bg-camadel-charcoal sm:h-96" />
           </div>
 
           <div className="mt-14 grid gap-5 sm:grid-cols-3">
             {AREA_ATUACAO.highlights.map((item) => {
               const Icon = ICON_MAP[item.icon];
               return (
-                <div key={item.title} className="rounded-sm border border-camadel-steel bg-camadel-charcoal p-6">
+                <div key={item.title} className="rounded-xl border border-camadel-steel bg-camadel-charcoal p-6">
                   <Icon size={22} className="mb-3 text-camadel-red" strokeWidth={1.75} />
                   <h3 className="mb-1 font-display text-base font-semibold text-camadel-silverHi">
                     {item.title}
@@ -60,7 +60,7 @@ export default function AreaDeAtuacaoPage() {
             href={getWhatsAppUrl("Olá, Camadel! Gostaria de confirmar o atendimento para a minha região.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-2 rounded-sm bg-camadel-red px-7 py-3.5 font-body text-sm font-semibold tracking-wide text-white transition-all hover:bg-camadel-redDark hover:shadow-red-glow"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-camadel-red px-7 py-3.5 font-body text-sm font-semibold tracking-wide text-white shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0"
           >
             <MessageCircle size={16} />
             Confirmar Atendimento na Minha Região

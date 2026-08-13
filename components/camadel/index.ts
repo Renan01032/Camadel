@@ -2,6 +2,7 @@ export { Header } from "./Header";
 export { Hero } from "./Hero";
 export { Diferenciais } from "./Diferenciais";
 export { Categorias } from "./Categorias";
+export { FeaturedProducts } from "./FeaturedProducts";
 export { BrandsMarquee } from "./BrandsMarquee";
 export { CompromissoBanner } from "./CompromissoBanner";
 export { CTAFinal } from "./CTAFinal";

@@ -21,7 +21,7 @@ export function Footer() {
               href={`https://wa.me/${BRAND.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm border border-camadel-steel px-4 py-2.5 text-sm text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
+              className="inline-flex items-center gap-2 rounded-full border border-camadel-steel px-4 py-2.5 text-sm text-camadel-silverHi transition-all duration-200 hover:-translate-y-0.5 hover:border-camadel-red hover:text-camadel-red"
             >
               <MessageCircle size={16} className="text-camadel-red" />
               Falar no WhatsApp

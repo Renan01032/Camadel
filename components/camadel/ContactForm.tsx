@@ -35,10 +35,10 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border border-camadel-steel bg-camadel-charcoal p-6 lg:p-8"
+      className="rounded-2xl border border-camadel-steel bg-camadel-charcoal p-6 lg:p-8"
     >
       {items.length > 0 && (
-        <div className="mb-6 rounded-sm border border-camadel-red/50 bg-camadel-red/5 p-4">
+        <div className="mb-6 rounded-xl border border-camadel-red/50 bg-camadel-red/5 p-4">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-camadel-red">
             Itens selecionados no catálogo
           </p>
@@ -46,7 +46,7 @@ export function ContactForm() {
             {items.map((item) => (
               <span
                 key={item}
-                className="inline-flex items-center gap-1.5 rounded-sm bg-camadel-black px-2.5 py-1 text-xs text-camadel-silverHi"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-camadel-black px-2.5 py-1 text-xs text-camadel-silverHi"
               >
                 {item}
                 <button
@@ -70,7 +70,7 @@ export function ContactForm() {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none focus:border-camadel-red"
+            className="rounded-lg border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none transition-colors focus:border-camadel-red"
             placeholder="Seu nome"
           />
         </label>
@@ -81,7 +81,7 @@ export function ContactForm() {
             required
             value={contact}
             onChange={(e) => setContact(e.target.value)}
-            className="border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none focus:border-camadel-red"
+            className="rounded-lg border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none transition-colors focus:border-camadel-red"
             placeholder="(11) 99999-9999"
           />
         </label>
@@ -91,7 +91,7 @@ export function ContactForm() {
           <input
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className="border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none focus:border-camadel-red"
+            className="rounded-lg border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none transition-colors focus:border-camadel-red"
             placeholder="Nome da construtora / empresa"
           />
         </label>
@@ -101,7 +101,7 @@ export function ContactForm() {
           <select
             value={subject}
             onChange={(e) => setSubject(e.target.value as (typeof SUBJECTS)[number])}
-            className="border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none focus:border-camadel-red"
+            className="rounded-lg border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none transition-colors focus:border-camadel-red"
           >
             {SUBJECTS.map((s) => (
               <option key={s} value={s}>
@@ -118,7 +118,7 @@ export function ContactForm() {
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="resize-none border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none focus:border-camadel-red"
+            className="resize-none rounded-lg border border-camadel-steel bg-camadel-black px-4 py-3 text-white outline-none transition-colors focus:border-camadel-red"
             placeholder="Liste os itens e quantidades aqui, ou descreva sua necessidade"
           />
         </label>
@@ -126,7 +126,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="mt-6 flex w-full items-center justify-center gap-3 bg-camadel-red px-5 py-4 font-display font-bold uppercase tracking-wide text-white transition-colors hover:bg-camadel-redDark"
+        className="mt-6 flex w-full items-center justify-center gap-3 rounded-full bg-camadel-red px-5 py-4 font-display font-bold uppercase tracking-wide text-white shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0"
       >
         <MessageCircle size={18} />
         Enviar Solicitação pelo WhatsApp
