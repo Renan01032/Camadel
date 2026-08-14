@@ -32,7 +32,7 @@ export const HERO = {
   subtitle:
     "Soluções completas em ferramentas, máquinas, EPIs, abrasivos, fixação e muito mais para atender sua obra do início ao fim.",
   image: "/images/hero-fullbleed.jpg",
-  imageAlt: "Profissional Camadel utilizando martelete Makita em canteiro de obras, com ferramentas Vonder, Bosch e MTX",
+  imageAlt: "Profissional Camadel utilizando martelete Makita em canteiro de obras ao entardecer, com ferramentas Vonder, Bosch e MTX sobre bancada",
 } as const;
 
 // -----------------------------------------------------------------------
@@ -146,6 +146,11 @@ export const CATEGORIES: Category[] = [
     intro:
       "Discos de corte, desbaste e flap, escovas de aço e cintas abrasivas para precisão de corte e acabamento em metal, concreto e madeira.",
     icon: "CircleDot",
+    image: {
+      panel: "/images/categoria-abrasivos.jpg",
+      card: "/images/categoria-abrasivos-card.jpg",
+      alt: "Discos de corte, desbaste e flap das marcas Norton, Bosch, 3M e Würth",
+    },
     items: [
       "Discos de corte",
       "Discos de desbaste",
@@ -165,6 +170,11 @@ export const CATEGORIES: Category[] = [
     intro:
       "Capacetes, óculos, luvas e proteção contra queda: equipamentos homologados para manter sua equipe segura em qualquer etapa da obra.",
     icon: "ShieldCheck",
+    image: {
+      panel: "/images/categoria-epis.jpg",
+      card: "/images/categoria-epis-card.jpg",
+      alt: "Capacete Camadel, óculos, luvas, colete refletivo, botina e cinto de segurança",
+    },
     items: [
       "Capacetes de segurança",
       "Óculos de proteção",
@@ -184,6 +194,11 @@ export const CATEGORIES: Category[] = [
     intro:
       "Da fundação ao reboco: carrinhos, betoneiras, argamassas e impermeabilizantes para manter o cronograma da obra em dia.",
     icon: "Building2",
+    image: {
+      panel: "/images/categoria-construcao.jpg",
+      card: "/images/categoria-construcao-card.jpg",
+      alt: "Canteiro de obras com carrinho de mão Camadel, betoneira, cimento e materiais de construção",
+    },
     items: [
       "Ferramentas para alvenaria",
       "Betoneiras e acessórios",
@@ -203,6 +218,11 @@ export const CATEGORIES: Category[] = [
     intro:
       "Itens de limpeza para o canteiro e materiais de escritório para o dia a dia administrativo da obra, em um único fornecedor.",
     icon: "Sparkles",
+    image: {
+      panel: "/images/categoria-limpeza.jpg",
+      card: "/images/categoria-limpeza-card.jpg",
+      alt: "Vassouras, produtos de limpeza e materiais de escritório Camadel",
+    },
     items: [
       "Vassouras e rodos",
       "Baldes e produtos de limpeza",

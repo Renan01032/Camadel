@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[560px] items-end overflow-hidden pt-24 sm:min-h-[640px] lg:min-h-[760px] lg:pt-28"
+      className="relative flex min-h-[560px] items-end overflow-hidden bg-camadel-black pt-24 sm:min-h-[640px] lg:min-h-[760px] lg:pt-28"
     >
       <Image
         src={HERO.image}
@@ -27,7 +27,7 @@ export function Hero() {
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 object-cover object-[58%_46%]"
+        className="absolute inset-0 object-cover object-[50%_38%]"
       />
       {/* Gradiente da esquerda (legibilidade do texto) */}
       <div className="absolute inset-0 bg-gradient-to-r from-camadel-black via-camadel-black/80 to-camadel-black/10" />

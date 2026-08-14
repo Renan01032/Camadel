@@ -124,6 +124,36 @@ git push
 > corromper o `node_modules`, mova a pasta para fora do OneDrive
 > temporariamente (ex.: `C:\dev\camadel`) e rode o install de lá.
 
+## Terceira rodada — fotos que faltavam
+
+- **Abrasivos, EPIs e Construção Civil com foto real.** As 3 imagens
+  reenviadas foram aplicadas nas categorias correspondentes (grade do
+  catálogo e página de cada categoria). A foto de abrasivos veio com
+  fundo branco de estúdio — tratei para um fundo escuro consistente com o
+  resto do site (mesmo recurso visual das outras fotos de categoria).
+
+## Quarta rodada
+
+- **Limpeza e Escritório também com foto real** — todas as 7 categorias
+  do catálogo agora têm foto própria (nenhuma resta com tratamento de
+  ícone). A imagem enviada é de resolução mais baixa (400×237) que as
+  demais; ficou nítida em tamanho de card, mas pode notar leve suavização
+  se ampliada muito.
+
+## Quinta rodada — hero definitivo
+
+- Testamos `object-fit: contain` (mostra a imagem inteira, mas cria áreas
+  vazias/"tarjas" quando a proporção da foto não bate com a da tela) e
+  voltamos para `object-fit: cover` (preenche 100% do espaço, sem tarjas).
+- A virada de qualidade veio da **foto em si**: as duas primeiras eram
+  verticais (proporção ~2:3), forçando recorte pesado para caber num
+  banner largo. A imagem final enviada já nasceu **horizontal (16:9)** —
+  quase não precisa de corte para preencher o hero em qualquer tela,
+  então "sem tarjas" e "mostrando o máximo da imagem" deixaram de ser
+  objetivos conflitantes.
+- Ponto focal ajustável em `object-[50%_38%]` dentro de `Hero.tsx`, caso
+  quiser deslocar o enquadramento para um lado.
+
 ## Estrutura
 
 ```
@@ -164,9 +194,6 @@ public/
 
 ## Pendências conhecidas
 
-- **3 fotos de categoria não recebidas** (ver seção acima) — Abrasivos,
-  EPIs e Construção Civil estão com tratamento de ícone até você reenviar
-  as imagens.
 - **CNPJ e redes sociais** no rodapé ainda não têm link real — placeholders
   (`#`) até você confirmar os perfis oficiais.
 - **Google Fonts**: as fontes (Oswald/Roboto/Roboto Mono) são carregadas
