@@ -10,7 +10,7 @@ export function TrustStrip() {
           return (
             <div key={text} className="flex items-center gap-3 px-5 py-5 lg:px-8">
               <Icon className="shrink-0 text-camadel-red" size={22} />
-              <span className="font-display text-xs uppercase tracking-wide text-camadel-silverHi sm:text-sm">
+              <span className="font-display text-xs font-medium uppercase tracking-wide text-camadel-silverHi sm:text-sm">
                 {text}
               </span>
             </div>

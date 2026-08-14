@@ -26,6 +26,7 @@ export function Footer() {
               alt="Camadel"
               width={785}
               height={172}
+              unoptimized
               className="mb-4 h-9 w-auto"
             />
             <p className="mb-6 max-w-xs text-sm leading-relaxed text-camadel-muted">

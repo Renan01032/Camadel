@@ -69,7 +69,9 @@ export function ContactForm() {
           />
         </label>
         <label className="flex flex-col gap-2 text-sm text-camadel-silverHi">
-          Empresa <span className="text-camadel-muted">(opcional)</span>
+          <span>
+            Empresa <span className="text-camadel-muted">(opcional)</span>
+          </span>
           <input
             value={company}
             onChange={(e) => setCompany(e.target.value)}

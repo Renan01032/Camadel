@@ -31,6 +31,7 @@ export function MarcasParceiras() {
                 alt={brand.name}
                 width={200}
                 height={70}
+                unoptimized
                 className="h-9 w-auto object-contain sm:h-10"
               />
             </motion.div>

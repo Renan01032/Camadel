@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[560px] items-end overflow-hidden bg-camadel-black pt-24 sm:min-h-[640px] lg:min-h-[760px] lg:pt-28"
+      className="relative flex min-h-[560px] items-start overflow-hidden bg-camadel-black pt-28 sm:min-h-[640px] sm:pt-32 lg:min-h-[760px] lg:pt-40"
     >
       <Image
         src={HERO.image}

@@ -177,6 +177,60 @@ conteúdo e ser o principal ponto de navegação/SEO do site.
 - Conferido que a Home ficou com exactly um `<h1>` (o do Hero) — as
   seções internas usam `<h2>`, correto para SEO/acessibilidade.
 
+## Sétima rodada — título no topo do hero
+
+O conteúdo do hero (selo, título, subtítulo, botões) estava ancorado na
+base da seção (`items-end`), então em telas mais baixas/estreitas o
+título podia aparecer só depois de um scroll. Trocado para `items-start`
+com mais espaço de respiro abaixo do menu fixo (`pt-28`/`pt-32`/`pt-40`) —
+agora o título já aparece perto do topo assim que a página carrega, e
+desce normalmente com o scroll (sem nenhum efeito sticky/parallax) até a
+seção de Diferenciais começar.
+
+## Oitava rodada — foto de Quem Somos + bug no formulário
+
+- **Foto de "Quem Somos" atualizada** para a nova versão enviada (mesma
+  cena, mas em luz diurna/céu azul, bem mais vívida que a anterior).
+- **Corrigido o campo "Empresa" do formulário de contato**: o texto
+  "(opcional)" estava quebrando para uma linha própria em vez de ficar ao
+  lado de "Empresa" — bug de CSS (o `<label>` usa `flex flex-col`, e um
+  texto solto misturado com um `<span>` vira dois itens de flex
+  separados, empilhados). Corrigido agrupando os dois num único `<span>`.
+
+## Nona rodada — deixando o projeto leve (plano gratuito da Vercel)
+
+O pedido foi deixar o projeto o mais leve possível, já que o site está
+hospedado no plano Hobby (gratuito) da Vercel — que tem limites de uso
+mensal para banda e, principalmente, para **otimização de imagens**
+(cada tamanho/formato novo que o Next.js gera para uma imagem conta como
+uso). Trabalhei em quatro frentes:
+
+1. **Imagens recomprimidas.** Todas as fotos (`.jpg`) foram reprocessadas
+   com compressão mais agressiva e JPEG progressivo, sem perda visível de
+   qualidade. Os logos e selos (`.png`) passaram pelo `pngquant`
+   (compressão com paleta otimizada). Resultado: **pasta `public/images`
+   caiu de 3.8 MB para 1.9 MB** — quase 50% menor.
+2. **Menos variações de imagem geradas pela Vercel.** `next.config.mjs`
+   agora usa uma lista enxuta de larguras (`deviceSizes`/`imageSizes`)
+   alinhada aos breakpoints reais do site, em vez da lista padrão do
+   Next.js (bem mais longa). Também passamos a gerar só WebP em vez de
+   WebP **e** AVIF — reduz pela metade as variações por imagem.
+3. **Logos e selos passam direto, sem otimização da Vercel.** O logo da
+   Camadel (cabeçalho/rodapé), os 3 selos de diferenciais e as 6 logos de
+   marcas agora usam `unoptimized` no componente `<Image>` — como já são
+   arquivos pequenos e comprimidos manualmente, rodá-los pela otimizadora
+   da Vercel só consumiria cota sem ganho real de tamanho.
+4. **Limpeza de código morto.** Removido 1 ícone de favicon que não era
+   usado em lugar nenhum (`icon-512.png`) e 6 ícones importados em
+   `lib/icon-map.tsx` que nunca eram chamados (`Wrench`, `Ruler`,
+   `Compass`, `Hand`, `Scissors`, `MessageCircle` — esse último já é
+   importado direto onde é usado). Conferido que não sobrou nenhum
+   componente ou dependência sem uso no projeto.
+
+**Resultado:** pasta do projeto (sem `node_modules`/`.next`) caiu de
+**4.2 MB para 2.2 MB** — quase metade do tamanho, com o mesmo visual e
+sem nenhuma rota quebrada.
+
 ## Estrutura
 
 ```

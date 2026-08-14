@@ -41,6 +41,7 @@ export function Diferenciais() {
                     alt=""
                     width={220}
                     height={230}
+                    unoptimized
                     className="mb-3 h-20 w-auto"
                   />
                 ) : Icon ? (

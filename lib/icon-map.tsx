@@ -1,13 +1,8 @@
 import {
   Hammer,
-  Wrench,
-  Ruler,
   ShieldCheck,
-  Compass,
-  Hand,
   Headphones,
   Zap,
-  Scissors,
   CircleDot,
   Building2,
   Sparkles,
@@ -16,24 +11,21 @@ import {
   PackageCheck,
   Truck,
   MapPin,
-  MessageCircle,
   type LucideIcon,
 } from "lucide-react";
 
 /**
  * Mapa de nome (string, vindo de lib/constants.ts) -> componente Lucide.
  * Mantém o conteúdo (constants.ts) desacoplado da biblioteca de ícones.
+ * Só entram aqui ícones referenciados dinamicamente via `icon: "Nome"`
+ * em constants.ts — ícones usados diretamente em JSX (ex: MessageCircle,
+ * Mail, Phone) são importados direto de lucide-react em cada componente.
  */
 export const ICON_MAP: Record<string, LucideIcon> = {
   Hammer,
-  Wrench,
-  Ruler,
   ShieldCheck,
-  Compass,
-  Hand,
   Headphones,
   Zap,
-  Scissors,
   CircleDot,
   Building2,
   Sparkles,
@@ -42,5 +34,4 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   PackageCheck,
   Truck,
   MapPin,
-  MessageCircle,
 };
