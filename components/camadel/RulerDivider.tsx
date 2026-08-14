@@ -8,7 +8,7 @@ export function RulerDivider({ label }: { label?: string }) {
 
   return (
     <div className="flex w-full items-center gap-4 select-none" aria-hidden="true">
-      <div className="hidden h-px flex-1 bg-camadel-steel sm:block" />
+      <div className="hidden h-px flex-1 bg-camadel-line sm:block" />
       <div className="flex items-end gap-[3px] py-2">
         {ticks.map((_, i) => {
           const isMajor = i % 10 === 0;
@@ -31,7 +31,7 @@ export function RulerDivider({ label }: { label?: string }) {
           {label}
         </span>
       )}
-      <div className="h-px flex-1 bg-camadel-steel" />
+      <div className="h-px flex-1 bg-camadel-line" />
     </div>
   );
 }

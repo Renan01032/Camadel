@@ -14,27 +14,35 @@ const config: Config = {
           black: "#0A0A0A", // fundo principal
           charcoal: "#141414", // superfície de cards
           charcoal2: "#1B1B1B", // superfície elevada / gradientes
-          steel: "#2A2A2A", // bordas padrão
+          steel: "#262626", // bordas padrão
           steelLight: "#3A3A3A", // bordas em hover/estado ativo
           red: "#E2231A", // vermelho vibrante — CTAs, ícones, destaques
           redDark: "#A61B14", // hover do vermelho
-          silverHi: "#F2F2F0", // topo do gradiente metálico (texto principal)
+          redDeep: "#7A130E", // sombras / gradientes profundos
+          silverHi: "#F4F4F2", // topo do gradiente metálico (texto principal)
           silverLo: "#8E8E8C", // base do gradiente metálico
           muted: "#9C9C9A", // texto secundário
+          line: "#232323", // linhas/bordas sutis
         },
       },
       fontFamily: {
-        display: ["var(--font-oswald)", "sans-serif"], // headline / wordmark — réplica do peso da logo
-        body: ["var(--font-roboto)", "sans-serif"], // texto corrido
-        mono: ["var(--font-roboto-mono)", "monospace"], // eyebrows técnicos / specs
+        display: ["var(--font-oswald)", "sans-serif"],
+        body: ["var(--font-roboto)", "sans-serif"],
+        mono: ["var(--font-roboto-mono)", "monospace"],
       },
       boxShadow: {
         "red-glow": "0 8px 30px rgba(226, 35, 26, 0.45)",
+        "red-glow-lg": "0 20px 60px rgba(226, 35, 26, 0.28)",
       },
       backgroundImage: {
         "carbon-weave":
           "repeating-linear-gradient(115deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 8px)",
-        "metal-text": "linear-gradient(180deg, #F2F2F0 40%, #8E8E8C 100%)",
+        "metal-text": "linear-gradient(180deg, #F4F4F2 35%, #8E8E8C 100%)",
+        blueprint:
+          "linear-gradient(rgba(226,35,26,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(226,35,26,0.06) 1px, transparent 1px)",
+      },
+      backgroundSize: {
+        grid: "34px 34px",
       },
       keyframes: {
         pulseGlow: {
@@ -47,19 +55,14 @@ const config: Config = {
             transform: "scale(1.04)",
           },
         },
-        marquee: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-        slideUpFade: {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+        slideUp: {
+          "0%": { transform: "translateY(12px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
         },
       },
       animation: {
         "pulse-glow": "pulseGlow 2.6s ease-in-out infinite",
-        marquee: "marquee 28s linear infinite",
-        "slide-up-fade": "slideUpFade 0.25s ease-out",
+        "slide-up": "slideUp 0.35s ease-out",
       },
     },
   },

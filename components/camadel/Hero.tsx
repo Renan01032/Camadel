@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { HERO_CONTENT } from "@/lib/constants";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { HERO } from "@/lib/constants";
+import { BlueprintFrame } from "./BlueprintFrame";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   show: (delay = 0) => ({
     opacity: 1,
     y: 0,
@@ -18,103 +18,93 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-camadel-black">
-      <div className="absolute inset-0 bg-carbon-weave opacity-[0.3]" />
-
-      {/* Marca d'água estrutural: os dois paralelogramos da logo, ampliados */}
-      <div className="pointer-events-none absolute -right-24 bottom-0 top-0 hidden items-center opacity-[0.05] xl:flex">
-        <div className="mr-10 h-[480px] w-[90px] -skew-x-[18deg] bg-camadel-red" />
-        <div className="h-[480px] w-[90px] -skew-x-[18deg] bg-camadel-red" />
-      </div>
-
+    <section id="inicio" className="relative overflow-hidden bg-camadel-black pt-28 sm:pt-32">
+      <div className="absolute inset-0 bg-carbon-weave opacity-[0.35]" aria-hidden="true" />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 20% 15%, rgba(226,35,26,0.12), transparent 60%)",
+            "radial-gradient(ellipse 70% 55% at 18% 15%, rgba(226,35,26,0.12), transparent 60%)",
         }}
+        aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-24 sm:px-8 sm:pb-24 sm:pt-32">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
-          <div>
-            <motion.span
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="mb-6 inline-block font-mono text-xs font-semibold uppercase tracking-[0.3em] text-camadel-red sm:text-sm"
-            >
-              {HERO_CONTENT.eyebrow}
-            </motion.span>
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-8 sm:pb-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-8">
+        <div>
+          <motion.span
+            initial="hidden"
+            animate="show"
+            custom={0}
+            variants={fadeUp}
+            className="mb-6 inline-block font-mono text-xs font-semibold uppercase tracking-[0.3em] text-camadel-red"
+          >
+            {HERO.eyebrow}
+          </motion.span>
 
-            <motion.h1
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              custom={0.1}
-              variants={fadeUp}
-              className="text-metal mb-6 font-display text-[2.4rem] font-semibold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl lg:leading-[1.02]"
-            >
-              {HERO_CONTENT.title}
-            </motion.h1>
+          <motion.h1
+            initial="hidden"
+            animate="show"
+            custom={0.1}
+            variants={fadeUp}
+            className="text-metal max-w-xl font-display text-[2.5rem] font-semibold leading-[1.05] tracking-tight sm:text-6xl sm:leading-[1.02]"
+          >
+            {HERO.title}{" "}
+            <span className="text-camadel-red" style={{ WebkitTextFillColor: "#E2231A" }}>
+              {HERO.titleAccent}
+            </span>
+          </motion.h1>
 
-            <motion.p
-              initial="hidden"
-              whileInView="show"
-              custom={0.2}
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="mb-10 max-w-xl font-body text-base text-camadel-muted sm:text-lg"
-            >
-              {HERO_CONTENT.paragraph}
-            </motion.p>
-
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              custom={0.3}
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="flex flex-col gap-4 sm:flex-row"
-            >
-              <Link
-                href="/catalogo"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-camadel-red px-7 py-3.5 font-body text-sm font-semibold tracking-wide text-white shadow-lg shadow-black/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0"
-              >
-                {HERO_CONTENT.ctaPrimary}
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <a
-                href={getWhatsAppUrl("Olá, Camadel! Gostaria de solicitar um orçamento para a minha obra.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-camadel-red px-7 py-3.5 font-body text-sm font-semibold tracking-wide text-camadel-silverHi transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-red/10 active:translate-y-0"
-              >
-                <MessageCircle size={16} />
-                {HERO_CONTENT.ctaSecondary}
-              </a>
-            </motion.div>
-          </div>
+          <motion.p
+            initial="hidden"
+            animate="show"
+            custom={0.2}
+            variants={fadeUp}
+            className="mt-7 max-w-lg text-base leading-relaxed text-camadel-muted sm:text-lg"
+          >
+            {HERO.subtitle}
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-camadel-steel shadow-2xl shadow-black/50 lg:max-w-none"
+            initial="hidden"
+            animate="show"
+            custom={0.3}
+            variants={fadeUp}
+            className="mt-9 flex flex-wrap gap-4"
           >
-            <Image
-              src="/hero-tools.jpg"
-              alt="Furadeira Makita, serra circular e maletas Vonder e MTX em uso em uma obra"
-              fill
-              priority
-              sizes="(min-width: 1024px) 42vw, (min-width: 640px) 60vw, 92vw"
-              className="object-cover object-[50%_28%]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-camadel-black/60 via-transparent to-transparent" />
-            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+            <Link
+              href="/catalogo"
+              className="inline-flex items-center gap-2 rounded-sm bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark hover:shadow-red-glow"
+            >
+              Conheça nosso catálogo <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/contato"
+              className="inline-flex items-center gap-2 rounded-sm border border-white/25 px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
+            >
+              Fale com a Camadel
+            </Link>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
+        >
+          <BlueprintFrame label="Camadel / Obra">
+            <div className="overflow-hidden rounded-sm border border-camadel-line">
+              <Image
+                src={HERO.image}
+                alt={HERO.imageAlt}
+                width={1600}
+                height={900}
+                priority
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+          </BlueprintFrame>
+        </motion.div>
       </div>
     </section>
   );

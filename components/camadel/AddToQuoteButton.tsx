@@ -4,32 +4,33 @@ import { Check, Plus } from "lucide-react";
 import { useQuote } from "@/lib/quote-context";
 
 export function AddToQuoteButton({
-  item,
+  name,
+  category,
+  categorySlug,
   className = "",
-  fullWidth = false,
 }: {
-  item: string;
+  name: string;
+  category: string;
+  categorySlug: string;
   className?: string;
-  fullWidth?: boolean;
 }) {
-  const { isSelected, toggleItem } = useQuote();
-  const active = isSelected(item);
+  const { isSelected, toggleItem, makeId } = useQuote();
+  const id = makeId({ name, category, categorySlug });
+  const active = isSelected(id);
 
   return (
     <button
       type="button"
-      onClick={() => toggleItem(item)}
+      onClick={() => toggleItem({ name, category, categorySlug })}
       aria-pressed={active}
-      className={`inline-flex items-center justify-center gap-1.5 rounded-full border px-4 py-2.5 text-xs font-semibold uppercase tracking-wide transition-all duration-200 active:scale-[0.96] ${
-        fullWidth ? "w-full" : ""
-      } ${
+      className={`inline-flex items-center gap-1.5 rounded-sm px-3 py-2 font-mono text-[11px] font-semibold uppercase tracking-wide transition-colors ${
         active
-          ? "border-camadel-red bg-camadel-red/10 text-camadel-red"
-          : "border-camadel-steel text-camadel-muted hover:-translate-y-0.5 hover:border-camadel-red hover:text-camadel-red hover:shadow-sm"
+          ? "bg-camadel-red text-white"
+          : "border border-camadel-line text-camadel-silverHi hover:border-camadel-red hover:text-camadel-red"
       } ${className}`}
     >
       {active ? <Check size={13} /> : <Plus size={13} />}
-      {active ? "Na Cotação" : "Adicionar à Cotação"}
+      {active ? "Na cotação" : "Adicionar à cotação"}
     </button>
   );
 }

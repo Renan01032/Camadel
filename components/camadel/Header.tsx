@@ -1,177 +1,188 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, MessageCircle, X } from "lucide-react";
-import { CATALOG, NAV_LINKS } from "@/lib/constants";
-import { getQuoteWhatsAppUrl } from "@/lib/whatsapp";
+import { ChevronDown, ClipboardList, Menu, X } from "lucide-react";
+import { CATEGORIES, NAV_LINKS } from "@/lib/constants";
 import { useQuote } from "@/lib/quote-context";
-import { Logo } from "./Logo";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
   const [mobileCatalogOpen, setMobileCatalogOpen] = useState(false);
   const pathname = usePathname();
-  const { items, count } = useQuote();
+  const catalogRef = useRef<HTMLDivElement>(null);
+  const { count, openDrawer, hydrated } = useQuote();
 
-  const quoteHref = getQuoteWhatsAppUrl(items);
-  const [beforeCatalog, afterCatalog] = [NAV_LINKS.slice(0, 1), NAV_LINKS.slice(1)];
+  useEffect(() => {
+    setMobileOpen(false);
+    setCatalogOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    function onClickOutside(e: MouseEvent) {
+      if (catalogRef.current && !catalogRef.current.contains(e.target as Node)) {
+        setCatalogOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-camadel-steel bg-camadel-black/95 backdrop-blur">
-      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Logo />
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-camadel-line bg-camadel-black/92 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image
+            src="/images/camadel-logo.png"
+            alt="Camadel — Ferramentas para Construção"
+            width={785}
+            height={172}
+            priority
+            className="h-9 w-auto sm:h-10"
+          />
+        </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
-          {beforeCatalog.map((link) => (
-            <NavLink key={link.href} href={link.href} active={pathname === link.href}>
-              {link.label}
-            </NavLink>
-          ))}
-
-          <div className="group relative">
-            <button
-              type="button"
-              className="flex items-center gap-1 py-2 font-body text-sm tracking-wide text-[#C9C9C7] transition-colors hover:text-camadel-red"
-            >
-              Catálogo
-              <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />
-            </button>
-            <div className="invisible absolute left-1/2 top-full z-50 w-[560px] -translate-x-1/2 translate-y-1 rounded-xl border border-camadel-steel bg-camadel-charcoal p-3 opacity-0 shadow-2xl shadow-black/60 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-              <div className="grid grid-cols-2 gap-1">
-                {CATALOG.map((category) => (
-                  <Link
-                    key={category.slug}
-                    href={`/catalogo/${category.slug}`}
-                    className="rounded-lg px-3 py-2.5 text-sm text-camadel-silverHi transition-colors hover:bg-camadel-black hover:text-camadel-red"
+        <nav className="hidden items-center gap-1 lg:flex">
+          {NAV_LINKS.map((link) => {
+            if (link.href === "/catalogo") {
+              return (
+                <div key={link.href} ref={catalogRef} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setCatalogOpen((v) => !v)}
+                    className="flex items-center gap-1 rounded-sm px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:text-camadel-red"
+                    aria-expanded={catalogOpen}
                   >
-                    {category.navLabel}
-                  </Link>
-                ))}
-              </div>
+                    {link.label}
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform ${catalogOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                  {catalogOpen && (
+                    <div className="absolute left-1/2 top-full mt-2 w-72 -translate-x-1/2 rounded-sm border border-camadel-line bg-camadel-charcoal p-2 shadow-2xl animate-slide-up">
+                      <div className="grid grid-cols-1 gap-0.5">
+                        {CATEGORIES.map((cat) => (
+                          <Link
+                            key={cat.slug}
+                            href={`/catalogo/${cat.slug}`}
+                            className="rounded-sm px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:bg-camadel-black hover:text-camadel-red"
+                          >
+                            {cat.navLabel}
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="mt-1 border-t border-camadel-line pt-1">
+                        <Link
+                          href="/catalogo"
+                          className="block rounded-sm px-3 py-2 font-mono text-xs uppercase tracking-wide text-camadel-red hover:bg-camadel-black"
+                        >
+                          Ver catálogo completo
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return (
               <Link
-                href="/catalogo"
-                className="mt-2 block rounded-lg border-t border-camadel-steel px-3 pt-3 text-xs font-semibold uppercase tracking-wide text-camadel-red"
+                key={link.href}
+                href={link.href}
+                className="rounded-sm px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:text-camadel-red"
               >
-                Ver catálogo completo →
+                {link.label}
               </Link>
-            </div>
-          </div>
-
-          {afterCatalog.map((link) => (
-            <NavLink key={link.href} href={link.href} active={pathname === link.href}>
-              {link.label}
-            </NavLink>
-          ))}
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a
-            href={quoteHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-camadel-red px-5 py-2.5 font-body text-sm font-semibold tracking-wide text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-camadel-redDark hover:shadow-red-glow active:translate-y-0 sm:inline-flex"
-          >
-            <MessageCircle size={16} />
-            {count > 0 ? `Enviar Orçamento (${count})` : "Solicitar Orçamento"}
-          </a>
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             type="button"
-            className="p-2 text-camadel-silverHi lg:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={mobileOpen}
+            onClick={openDrawer}
+            aria-label="Abrir lista de cotação"
+            className="relative flex h-10 w-10 items-center justify-center rounded-sm border border-camadel-line text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            <ClipboardList size={19} />
+            {hydrated && count > 0 && (
+              <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-camadel-red px-1 font-mono text-[10px] font-bold text-white">
+                {count}
+              </span>
+            )}
+          </button>
+
+          <Link
+            href="/contato"
+            className="hidden items-center rounded-sm bg-camadel-red px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark sm:inline-flex"
+          >
+            Solicitar Orçamento
+          </Link>
+
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            onClick={() => setMobileOpen((v) => !v)}
+            className="text-camadel-silverHi lg:hidden"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="flex flex-col gap-1 border-t border-camadel-steel px-5 pb-5 lg:hidden">
-          {beforeCatalog.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="py-3 font-body text-sm text-[#C9C9C7]"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-
-          <button
-            type="button"
-            className="flex items-center justify-between py-3 text-left font-body text-sm text-[#C9C9C7]"
-            onClick={() => setMobileCatalogOpen((v) => !v)}
-            aria-expanded={mobileCatalogOpen}
+        <nav className="flex flex-col gap-1 border-t border-camadel-line bg-camadel-black px-5 py-4 text-sm lg:hidden">
+          {NAV_LINKS.map((link) => {
+            if (link.href === "/catalogo") {
+              return (
+                <div key={link.href}>
+                  <button
+                    type="button"
+                    onClick={() => setMobileCatalogOpen((v) => !v)}
+                    className="flex w-full items-center justify-between py-2.5 text-camadel-silverHi"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform ${mobileCatalogOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                  {mobileCatalogOpen && (
+                    <div className="ml-3 flex flex-col gap-0.5 border-l border-camadel-line pl-3">
+                      {CATEGORIES.map((cat) => (
+                        <Link
+                          key={cat.slug}
+                          href={`/catalogo/${cat.slug}`}
+                          className="py-2 text-sm text-camadel-muted hover:text-camadel-red"
+                        >
+                          {cat.navLabel}
+                        </Link>
+                      ))}
+                      <Link href="/catalogo" className="py-2 text-sm text-camadel-red">
+                        Ver catálogo completo
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return (
+              <Link key={link.href} href={link.href} className="py-2.5 text-camadel-silverHi">
+                {link.label}
+              </Link>
+            );
+          })}
+          <Link
+            href="/contato"
+            className="mt-2 inline-flex items-center justify-center rounded-sm bg-camadel-red px-5 py-3 font-display text-xs font-bold uppercase tracking-wide text-white"
           >
-            Catálogo
-            <ChevronDown
-              size={16}
-              className={`transition-transform ${mobileCatalogOpen ? "rotate-180" : ""}`}
-            />
-          </button>
-          {mobileCatalogOpen && (
-            <div className="mb-1 ml-3 flex flex-col gap-1 border-l border-camadel-steel pl-4">
-              {CATALOG.map((category) => (
-                <Link
-                  key={category.slug}
-                  href={`/catalogo/${category.slug}`}
-                  className="py-2 text-sm text-camadel-muted transition-colors hover:text-camadel-red"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {category.navLabel}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {afterCatalog.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="py-3 font-body text-sm text-[#C9C9C7]"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-
-          <a
-            href={quoteHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-camadel-red px-4 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-camadel-redDark active:scale-[0.98]"
-            onClick={() => setMobileOpen(false)}
-          >
-            <MessageCircle size={16} />
-            {count > 0 ? `Enviar Orçamento (${count})` : "Solicitar Orçamento"}
-          </a>
-        </div>
+            Solicitar Orçamento
+          </Link>
+        </nav>
       )}
     </header>
-  );
-}
-
-function NavLink({
-  href,
-  active,
-  children,
-}: {
-  href: string;
-  active: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      className={`font-body text-sm tracking-wide transition-colors hover:text-camadel-red ${
-        active ? "text-camadel-red" : "text-[#C9C9C7]"
-      }`}
-    >
-      {children}
-    </Link>
   );
 }

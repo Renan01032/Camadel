@@ -7,38 +7,40 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto-mono/400.css";
 import "@fontsource/roboto-mono/500.css";
 import "./globals.css";
+import { SITE_URL } from "@/lib/constants";
+import { QuoteProvider } from "@/lib/quote-context";
 import { Header } from "@/components/camadel/Header";
 import { Footer } from "@/components/camadel/Footer";
 import { QuoteWidget } from "@/components/camadel/QuoteWidget";
-import { QuoteProvider } from "@/lib/quote-context";
-
-// Fontes auto-hospedadas via @fontsource (sem dependência de rede em tempo
-// de build para fonts.googleapis.com — mais robusto para CI/CD). As
-// variáveis CSS (--font-oswald etc.) são declaradas em app/globals.css e
-// consumidas pelo Tailwind (ver tailwind.config.ts -> theme.fontFamily).
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.camadel.com.br"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Camadel | Ferramentas para Construção Civil",
     template: "%s | Camadel Ferramentas",
   },
   description:
-    "A Camadel fornece ferramentas, EPIs, abrasivos, fixação e soluções completas para profissionais da construção no ABC Paulista e região. Catálogo técnico para orçamento — sem venda direta pelo site.",
+    "A Camadel fornece ferramentas, EPIs, abrasivos, fixação e soluções completas para profissionais da construção no ABC Paulista e região metropolitana de São Paulo. Catálogo digital para orçamento via WhatsApp.",
   keywords: [
     "ferramentas para construção",
     "ferramentas elétricas",
     "ferramentas profissionais",
+    "EPI construção civil",
     "Camadel",
   ],
   openGraph: {
     title: "Camadel | Ferramentas para Construção Civil",
     description:
-      "Precisão que constrói. Catálogo técnico Camadel para orçamento de ferramentas, EPIs, abrasivos e fixação.",
-    url: "https://www.camadel.com.br",
+      "Catálogo digital de ferramentas, EPIs, abrasivos e fixação para construção civil. Monte sua lista e solicite orçamento direto pelo WhatsApp.",
+    url: SITE_URL,
     siteName: "Camadel Ferramentas",
     locale: "pt_BR",
     type: "website",
+    images: ["/images/hero-home.jpg"],
+  },
+  icons: {
+    icon: "/icons/favicon-32.png",
+    apple: "/icons/icon-192.png",
   },
 };
 
@@ -53,7 +55,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen font-body">
+      <body className="min-h-screen bg-camadel-black font-body">
         <QuoteProvider>
           <Header />
           {children}

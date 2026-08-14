@@ -1,46 +1,57 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { DIFERENCIAIS } from "@/lib/constants";
 import { ICON_MAP } from "@/lib/icon-map";
+import { RulerDivider } from "./RulerDivider";
 
 export function Diferenciais() {
   return (
-    <section className="bg-camadel-black py-20 sm:py-28">
+    <section className="bg-camadel-black py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
+        <RulerDivider label="Por que a Camadel" />
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 max-w-xl"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-12 mt-8 max-w-xl font-display text-3xl font-semibold text-camadel-silverHi sm:text-4xl"
         >
-          <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-camadel-red">
-            Por que Camadel
-          </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-camadel-silverHi sm:text-4xl">
-            Feita para quem não pode parar a obra
-          </h2>
-        </motion.div>
+          Feita para quem não pode parar a obra
+        </motion.h2>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {DIFERENCIAIS.map((item, i) => {
-            const Icon = ICON_MAP[item.icon];
+            const Icon = item.icon ? ICON_MAP[item.icon] : null;
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.55, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4 }}
-                className="h-full rounded-xl border border-camadel-steel bg-camadel-charcoal p-6 transition-colors hover:border-camadel-red hover:shadow-lg"
+                className="flex h-full flex-col items-center rounded-sm border border-camadel-line bg-camadel-charcoal p-6 text-center transition-colors hover:border-camadel-red"
               >
-                <Icon size={26} className="text-camadel-red" strokeWidth={1.75} />
-                <h3 className="mb-2 mt-4 font-display text-base font-medium tracking-wide text-camadel-silverHi">
+                {item.badgeImage ? (
+                  <Image
+                    src={item.badgeImage}
+                    alt=""
+                    width={220}
+                    height={230}
+                    className="mb-3 h-20 w-auto"
+                  />
+                ) : Icon ? (
+                  <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-camadel-red">
+                    <Icon size={28} className="text-camadel-red" strokeWidth={1.75} />
+                  </span>
+                ) : null}
+                <h3 className="mb-1.5 font-display text-sm font-semibold uppercase tracking-wide text-camadel-silverHi">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-camadel-muted">{item.text}</p>
+                <p className="text-xs leading-relaxed text-camadel-muted">{item.text}</p>
               </motion.div>
             );
           })}

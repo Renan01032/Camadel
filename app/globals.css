@@ -28,15 +28,11 @@
   }
 
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.28em] text-camadel-red;
+    @apply font-mono text-xs font-semibold uppercase tracking-[0.28em] text-camadel-red;
   }
 
   .section-title {
-    @apply mt-3 font-display text-5xl font-bold uppercase leading-none text-white sm:text-6xl;
-  }
-
-  .section-title span {
-    @apply text-camadel-red;
+    @apply mt-3 font-display text-3xl font-semibold leading-tight text-camadel-silverHi sm:text-4xl;
   }
 
   /* Respeita a preferência do usuário por redução de movimento */
@@ -55,7 +51,10 @@
 
   /* Foco de teclado visível — acessibilidade */
   a:focus-visible,
-  button:focus-visible {
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
     outline: 2px solid theme("colors.camadel.red");
     outline-offset: 2px;
   }
@@ -68,5 +67,14 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  /* Utilitário para esconder scrollbar em chips horizontais (mobile) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
