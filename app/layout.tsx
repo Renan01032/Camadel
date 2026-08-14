@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Camadel Ferramentas",
     locale: "pt_BR",
     type: "website",
-    images: ["/images/hero-home.jpg"],
+    images: ["/images/hero-fullbleed.jpg"],
   },
   icons: {
     icon: "/icons/favicon-32.png",

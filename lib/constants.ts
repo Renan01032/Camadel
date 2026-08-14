@@ -30,9 +30,9 @@ export const HERO = {
   title: "O prazer no trabalho",
   titleAccent: "aperfeiçoa a obra.",
   subtitle:
-    "Parceria estratégica em ferramentas, EPIs, abrasivos, fixação e equipamentos para construção civil — do fundamento ao acabamento.",
-  image: "/images/hero-home.jpg",
-  imageAlt: "Profissional Camadel em canteiro de obras utilizando ferramentas elétricas",
+    "Soluções completas em ferramentas, máquinas, EPIs, abrasivos, fixação e muito mais para atender sua obra do início ao fim.",
+  image: "/images/hero-fullbleed.jpg",
+  imageAlt: "Profissional Camadel utilizando martelete Makita em canteiro de obras, com ferramentas Vonder, Bosch e MTX",
 } as const;
 
 // -----------------------------------------------------------------------
@@ -247,24 +247,24 @@ export function getCategory(slug: string) {
 // -----------------------------------------------------------------------
 // Marcas parceiras
 // -----------------------------------------------------------------------
-export const BRANDS = [
-  "Vonder",
-  "Bosch",
-  "Makita",
-  "MTX",
-  "Norton",
-  "3M",
-  "Würth",
-  "Fischer",
-  "Hilti",
-  "Stanley",
-  "Milwaukee",
-  "Dewalt",
-  "Vedacit",
-  "Votoran",
-  "Truper",
-  "Fiskars",
-] as const;
+export type Brand = {
+  name: string;
+  color: string;
+  /** Caminho para o logo oficial (public/images/brands/*), quando disponível. */
+  logo?: string;
+  /** Cor do cartão que melhor contrasta com o logo (marcas com conteúdo
+   * branco, como Bosch e Pado, precisam de cartão escuro). */
+  card?: "light" | "dark";
+};
+
+export const BRANDS: Brand[] = [
+  { name: "Vonder", color: "#F2A900", logo: "/images/brands/vonder.png", card: "dark" },
+  { name: "Bosch", color: "#E20015", logo: "/images/brands/bosch.png", card: "dark" },
+  { name: "Makita", color: "#0068B3", logo: "/images/brands/makita.png", card: "dark" },
+  { name: "MTX", color: "#D8232A", logo: "/images/brands/mtx-white.png", card: "dark" },
+  { name: "Starrett", color: "#E2001A", logo: "/images/brands/starrett.png", card: "dark" },
+  { name: "Pado", color: "#E5175E", logo: "/images/brands/pado.png", card: "dark" },
+];
 
 // -----------------------------------------------------------------------
 // Diferenciais/ícones da faixa de confiança (usados no topo de páginas

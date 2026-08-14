@@ -49,7 +49,7 @@ export function CategoryItemsGrid({
         {items.map((name) => (
           <div
             key={name}
-            className="flex items-center justify-between gap-3 rounded-sm border border-camadel-line bg-camadel-charcoal p-4"
+            className="flex items-center justify-between gap-3 rounded-xl border border-camadel-line bg-camadel-charcoal p-4"
           >
             <span className="text-sm text-camadel-silverHi">{name}</span>
             <AddToQuoteButton

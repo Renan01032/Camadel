@@ -30,7 +30,7 @@ export function QuickLeadForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-sm border border-camadel-line bg-camadel-black p-8 sm:p-10"
+          className="rounded-2xl border border-camadel-line bg-camadel-black p-8 sm:p-10"
         >
           <div className="mb-7 text-center">
             <p className="eyebrow">Resposta rápida</p>
@@ -50,7 +50,7 @@ export function QuickLeadForm() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="rounded-sm border border-camadel-line bg-camadel-charcoal px-4 py-3 text-white outline-none focus:border-camadel-red"
+                className="rounded-lg border border-camadel-line bg-camadel-charcoal px-4 py-3 text-white outline-none focus:border-camadel-red"
                 placeholder="Seu nome"
               />
             </label>
@@ -60,7 +60,7 @@ export function QuickLeadForm() {
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="rounded-sm border border-camadel-line bg-camadel-charcoal px-4 py-3 text-white outline-none focus:border-camadel-red"
+                className="rounded-lg border border-camadel-line bg-camadel-charcoal px-4 py-3 text-white outline-none focus:border-camadel-red"
                 placeholder="(11) 99999-9999"
               />
             </label>
@@ -70,7 +70,7 @@ export function QuickLeadForm() {
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 rows={3}
-                className="resize-none rounded-sm border border-camadel-line bg-camadel-charcoal px-4 py-3 text-white outline-none focus:border-camadel-red"
+                className="resize-none rounded-lg border border-camadel-line bg-camadel-charcoal px-4 py-3 text-white outline-none focus:border-camadel-red"
                 placeholder={
                   items.length
                     ? `Sua lista de cotação com ${items.length} ite${items.length > 1 ? "ns" : "m"} será enviada junto.`
@@ -80,7 +80,7 @@ export function QuickLeadForm() {
             </label>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-sm bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark sm:col-span-2"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark sm:col-span-2"
             >
               <MessageCircle size={18} />
               Receber orçamento via WhatsApp

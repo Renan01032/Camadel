@@ -33,7 +33,7 @@ export function Diferenciais() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4 }}
-                className="flex h-full flex-col items-center rounded-sm border border-camadel-line bg-camadel-charcoal p-6 text-center transition-colors hover:border-camadel-red"
+                className="flex h-full flex-col items-center rounded-xl border border-camadel-line bg-camadel-charcoal p-6 text-center transition-colors hover:border-camadel-red"
               >
                 {item.badgeImage ? (
                   <Image

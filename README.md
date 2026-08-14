@@ -66,7 +66,44 @@ Não há navegador headless neste ambiente para captura de tela, então a
 validação visual final (posicionamento, cores, animações) vale a pena
 conferir com `npm run dev` antes do deploy.
 
-## Fluxo recomendado de deploy (Vercel)
+## Ajustes desta rodada (feedback sobre o primeiro entregável)
+
+- **Hero em tela cheia**: trocado o painel contido por uma imagem de fundo
+  em largura total (ação de furadeira Makita + faíscas + maletas Vonder/mtx),
+  com gradiente escuro à esquerda para legibilidade do texto — no padrão da
+  referência enviada.
+- **Marcas parceiras com logos reais**: as 6 logos enviadas (Vonder, Bosch,
+  Makita, MTX, Starrett, Pado) foram recortadas e tratadas (fundo removido)
+  e substituem o texto puro.
+- **CTA final duplicado removido**: a faixa "Pronto para elevar o nível da
+  sua construção?" foi retirada de todas as páginas — cada página já tem
+  uma chamada de contato própria (formulário rápido na home, aba Contato no
+  menu), então a faixa extra era redundante.
+- **Contato clicável**: telefone abre o WhatsApp direto, e-mail abre o
+  cliente de e-mail — tanto no rodapé quanto na página de Contato.
+- **Botões mais ergonômicos**: troca de cantos quase retos (`rounded-sm`)
+  por botões em pílula (`rounded-full`) e cartões com cantos mais suaves
+  (`rounded-lg`/`rounded-xl`) em todo o site.
+
+## Segunda rodada de ajustes
+
+- **Hero com menos zoom**: a imagem de fundo foi recortada numa proporção
+  mais larga (1.5:1 em vez de ~1.2:1) e a altura da seção foi recalculada
+  para exigir bem menos corte automático do navegador. Em telas muito
+  largas ainda pode haver algum corte (é assim que `object-fit: cover`
+  funciona), mas a composição ficou bem mais fiel à foto original. Ponto
+  focal ajustável em `object-[58%_46%]` dentro de `Hero.tsx`.
+- **Logos das marcas em cartão preto uniforme**: todas as 6 logos agora
+  usam fundo preto. A logo da MTX (que tinha traço preto, invisível em
+  fundo preto) foi recolorida para branco especificamente para essa versão
+  (`mtx-white.png`) — o arquivo original com traço preto foi removido.
+- **Lista de texto das outras marcas removida**: a seção "Marcas
+  Parceiras" agora mostra só as 6 logos reais, sem nomes soltos em texto
+  abaixo (menções a outras marcas em textos soltos do site, como no card
+  "Marcas Líderes" dos diferenciais, continuam normalmente — não fazem
+  parte dessa seção).
+
+
 
 Como aprendemos em sessões anteriores, **sempre substitua o conteúdo do
 repositório por completo** — misturar com o scaffolding antigo é a causa
@@ -121,7 +158,8 @@ lib/
   icon-map.tsx                    # mapa nome-de-ícone -> componente Lucide
 public/
   images/                    # fotos processadas a partir do material enviado
-  icons/                       # favicon / ícones de app
+  images/brands/               # logos reais das marcas parceiras (recortados)
+  icons/                          # favicon / ícones de app
 ```
 
 ## Pendências conhecidas

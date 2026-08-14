@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Facebook, Mail, MapPin, MessageCircle } from "lucide-react";
 import {
   CATEGORIES,
   CONTACT_ADDRESS,
   CONTACT_EMAIL,
   CONTACT_PHONE,
   NAV_LINKS,
+  WHATSAPP_LINK,
 } from "@/lib/constants";
 
 const SOCIAL = [
@@ -39,7 +40,7 @@ export function Footer() {
                   key={label}
                   href="#"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-sm border border-camadel-line text-camadel-muted transition-colors hover:border-camadel-red hover:text-camadel-red"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-camadel-line text-camadel-muted transition-colors hover:border-camadel-red hover:text-camadel-red"
                 >
                   <Icon size={16} />
                 </a>
@@ -93,11 +94,23 @@ export function Footer() {
               Contato
             </h4>
             <ul className="space-y-3 text-sm text-camadel-muted">
-              <li className="flex items-center gap-2">
-                <Phone size={14} className="shrink-0 text-camadel-red" /> {CONTACT_PHONE}
+              <li>
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 transition-colors hover:text-camadel-red"
+                >
+                  <MessageCircle size={14} className="shrink-0 text-camadel-red" /> {CONTACT_PHONE}
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail size={14} className="shrink-0 text-camadel-red" /> {CONTACT_EMAIL}
+              <li>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="flex items-center gap-2 transition-colors hover:text-camadel-red"
+                >
+                  <Mail size={14} className="shrink-0 text-camadel-red" /> {CONTACT_EMAIL}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-camadel-red" />

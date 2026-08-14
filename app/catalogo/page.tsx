@@ -4,7 +4,6 @@ import { PageIntro } from "@/components/camadel/PageIntro";
 import { CategoryCard } from "@/components/camadel/CategoryCard";
 import { TrustStrip } from "@/components/camadel/TrustStrip";
 import { MarcasParceiras } from "@/components/camadel/MarcasParceiras";
-import { CTAFinal } from "@/components/camadel/CTAFinal";
 
 export const metadata: Metadata = {
   title: "Catálogo",
@@ -31,7 +30,6 @@ export default function CatalogoPage() {
 
       <TrustStrip />
       <MarcasParceiras />
-      <CTAFinal />
     </main>
   );
 }

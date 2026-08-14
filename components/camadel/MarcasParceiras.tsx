@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BRANDS } from "@/lib/constants";
 
@@ -14,20 +15,28 @@ export function MarcasParceiras() {
           Trabalhamos com as marcas líderes do mercado
         </h2>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {BRANDS.map((brand, i) => (
-            <motion.span
-              key={brand}
+            <motion.div
+              key={brand.name}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: (i % 8) * 0.04 }}
-              className="font-display text-xl font-bold uppercase tracking-tight text-camadel-silverHi/60 transition-colors hover:text-camadel-red sm:text-2xl"
+              transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
+              className="group flex h-24 items-center justify-center rounded-xl border border-camadel-line bg-camadel-black px-5 py-4 transition-colors hover:border-[--brand-color]"
+              style={{ ["--brand-color" as string]: brand.color }}
             >
-              {brand}
-            </motion.span>
+              <Image
+                src={brand.logo!}
+                alt={brand.name}
+                width={200}
+                height={70}
+                className="h-9 w-auto object-contain sm:h-10"
+              />
+            </motion.div>
           ))}
         </div>
+
         <p className="mt-8 text-center text-sm text-camadel-muted">
           E muitas outras marcas líderes do mercado nacional.
         </p>

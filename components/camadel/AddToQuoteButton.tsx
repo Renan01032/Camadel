@@ -23,7 +23,7 @@ export function AddToQuoteButton({
       type="button"
       onClick={() => toggleItem({ name, category, categorySlug })}
       aria-pressed={active}
-      className={`inline-flex items-center gap-1.5 rounded-sm px-3 py-2 font-mono text-[11px] font-semibold uppercase tracking-wide transition-colors ${
+      className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 font-mono text-[11px] font-semibold uppercase tracking-wide transition-colors ${
         active
           ? "bg-camadel-red text-white"
           : "border border-camadel-line text-camadel-silverHi hover:border-camadel-red hover:text-camadel-red"

@@ -49,7 +49,7 @@ export function SplitPanel({
           className={`mx-auto w-full max-w-md ${reverse ? "lg:order-1" : ""} lg:mx-0 lg:max-w-none`}
         >
           <BlueprintFrame label={frameLabel}>
-            <div className="overflow-hidden rounded-sm border border-camadel-line">
+            <div className="overflow-hidden rounded-xl border border-camadel-line">
               <Image
                 src={image}
                 alt={imageAlt}

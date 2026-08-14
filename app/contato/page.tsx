@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import {
   CONTACT_ADDRESS,
   CONTACT_EMAIL,
@@ -46,7 +46,7 @@ export default function ContatoPage() {
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="flex items-center gap-3 text-camadel-silverHi hover:text-camadel-red"
               >
-                <Phone className="shrink-0 text-camadel-red" />
+                <Mail className="shrink-0 text-camadel-red" />
                 {CONTACT_EMAIL}
               </a>
               <p className="flex items-center gap-3 text-camadel-silverHi">
@@ -59,7 +59,7 @@ export default function ContatoPage() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-sm bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark"
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark"
             >
               <MessageCircle size={18} />
               Chamar no WhatsApp

@@ -18,7 +18,7 @@ export function CategoryCard({ cat, delay = 0 }: { cat: Category; delay?: number
     >
       <Link
         href={`/catalogo/${cat.slug}`}
-        className="group block overflow-hidden rounded-sm border border-camadel-line transition-colors hover:border-camadel-red"
+        className="group block overflow-hidden rounded-xl border border-camadel-line transition-colors hover:border-camadel-red"
       >
         <div className="relative flex h-44 items-center justify-center overflow-hidden bg-camadel-charcoal2">
           {cat.image ? (

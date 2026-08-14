@@ -53,7 +53,7 @@ export function Header() {
                   <button
                     type="button"
                     onClick={() => setCatalogOpen((v) => !v)}
-                    className="flex items-center gap-1 rounded-sm px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:text-camadel-red"
+                    className="flex items-center gap-1 rounded-full px-3.5 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:bg-camadel-charcoal hover:text-camadel-red"
                     aria-expanded={catalogOpen}
                   >
                     {link.label}
@@ -63,13 +63,13 @@ export function Header() {
                     />
                   </button>
                   {catalogOpen && (
-                    <div className="absolute left-1/2 top-full mt-2 w-72 -translate-x-1/2 rounded-sm border border-camadel-line bg-camadel-charcoal p-2 shadow-2xl animate-slide-up">
+                    <div className="absolute left-1/2 top-full mt-2 w-72 -translate-x-1/2 rounded-xl border border-camadel-line bg-camadel-charcoal p-2 shadow-2xl animate-slide-up">
                       <div className="grid grid-cols-1 gap-0.5">
                         {CATEGORIES.map((cat) => (
                           <Link
                             key={cat.slug}
                             href={`/catalogo/${cat.slug}`}
-                            className="rounded-sm px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:bg-camadel-black hover:text-camadel-red"
+                            className="rounded-lg px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:bg-camadel-black hover:text-camadel-red"
                           >
                             {cat.navLabel}
                           </Link>
@@ -78,7 +78,7 @@ export function Header() {
                       <div className="mt-1 border-t border-camadel-line pt-1">
                         <Link
                           href="/catalogo"
-                          className="block rounded-sm px-3 py-2 font-mono text-xs uppercase tracking-wide text-camadel-red hover:bg-camadel-black"
+                          className="block rounded-lg px-3 py-2 font-mono text-xs uppercase tracking-wide text-camadel-red hover:bg-camadel-black"
                         >
                           Ver catálogo completo
                         </Link>
@@ -92,7 +92,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-sm px-3 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:text-camadel-red"
+                className="rounded-full px-3.5 py-2 font-body text-sm text-camadel-silverHi transition-colors hover:bg-camadel-charcoal hover:text-camadel-red"
               >
                 {link.label}
               </Link>
@@ -105,7 +105,7 @@ export function Header() {
             type="button"
             onClick={openDrawer}
             aria-label="Abrir lista de cotação"
-            className="relative flex h-10 w-10 items-center justify-center rounded-sm border border-camadel-line text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
+            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-camadel-line text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
           >
             <ClipboardList size={19} />
             {hydrated && count > 0 && (
@@ -117,7 +117,7 @@ export function Header() {
 
           <Link
             href="/contato"
-            className="hidden items-center rounded-sm bg-camadel-red px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark sm:inline-flex"
+            className="hidden items-center rounded-full bg-camadel-red px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark sm:inline-flex"
           >
             Solicitar Orçamento
           </Link>
@@ -177,7 +177,7 @@ export function Header() {
           })}
           <Link
             href="/contato"
-            className="mt-2 inline-flex items-center justify-center rounded-sm bg-camadel-red px-5 py-3 font-display text-xs font-bold uppercase tracking-wide text-white"
+            className="mt-2 inline-flex items-center justify-center rounded-full bg-camadel-red px-5 py-3 font-display text-xs font-bold uppercase tracking-wide text-white"
           >
             Solicitar Orçamento
           </Link>

@@ -74,7 +74,7 @@ export function QuoteWidget() {
                   type="button"
                   onClick={closeDrawer}
                   aria-label="Fechar"
-                  className="flex h-9 w-9 items-center justify-center rounded-sm text-camadel-muted hover:text-camadel-red"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-camadel-muted hover:text-camadel-red"
                 >
                   <X size={20} />
                 </button>
@@ -96,7 +96,7 @@ export function QuoteWidget() {
                     <Link
                       href="/catalogo"
                       onClick={closeDrawer}
-                      className="mt-2 inline-flex items-center rounded-sm border border-camadel-red px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wide text-camadel-red hover:bg-camadel-red hover:text-white"
+                      className="mt-2 inline-flex items-center rounded-full border border-camadel-red px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wide text-camadel-red hover:bg-camadel-red hover:text-white"
                     >
                       Ver catálogo
                     </Link>
@@ -112,13 +112,13 @@ export function QuoteWidget() {
                           {catItems.map((item) => (
                             <div
                               key={item.id}
-                              className="flex items-center justify-between gap-3 rounded-sm border border-camadel-line bg-camadel-black px-3 py-2.5"
+                              className="flex items-center justify-between gap-3 rounded-xl border border-camadel-line bg-camadel-black px-3 py-2.5"
                             >
                               <span className="text-sm text-camadel-silverHi">
                                 {item.name}
                               </span>
                               <div className="flex shrink-0 items-center gap-2">
-                                <div className="flex items-center rounded-sm border border-camadel-line">
+                                <div className="flex items-center overflow-hidden rounded-full border border-camadel-line">
                                   <button
                                     type="button"
                                     aria-label="Diminuir quantidade"
@@ -163,7 +163,7 @@ export function QuoteWidget() {
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-sm bg-camadel-red px-5 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark"
+                    className="flex w-full items-center justify-center gap-2 rounded-full bg-camadel-red px-5 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark"
                   >
                     Enviar via WhatsApp
                   </a>

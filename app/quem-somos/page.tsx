@@ -5,7 +5,6 @@ import { QUEM_SOMOS } from "@/lib/constants";
 import { SplitPanel } from "@/components/camadel/SplitPanel";
 import { TrustStrip } from "@/components/camadel/TrustStrip";
 import { MarcasParceiras } from "@/components/camadel/MarcasParceiras";
-import { CTAFinal } from "@/components/camadel/CTAFinal";
 
 export const metadata: Metadata = {
   title: "Quem Somos",
@@ -39,7 +38,6 @@ export default function QuemSomosPage() {
 
       <TrustStrip />
       <MarcasParceiras />
-      <CTAFinal />
     </main>
   );
 }

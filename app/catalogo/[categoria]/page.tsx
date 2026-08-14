@@ -7,7 +7,6 @@ import { RulerDivider } from "@/components/camadel/RulerDivider";
 import { BlueprintFrame } from "@/components/camadel/BlueprintFrame";
 import { CatalogSidebar } from "@/components/camadel/CatalogSidebar";
 import { CategoryItemsGrid } from "@/components/camadel/CategoryItemsGrid";
-import { CTAFinal } from "@/components/camadel/CTAFinal";
 
 export function generateStaticParams() {
   return CATEGORIES.map((cat) => ({ categoria: cat.slug }));
@@ -55,7 +54,7 @@ export default function CategoriaPage({
           <div className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <BlueprintFrame label={cat.navLabel}>
               {cat.image ? (
-                <div className="overflow-hidden rounded-sm border border-camadel-line">
+                <div className="overflow-hidden rounded-xl border border-camadel-line">
                   <Image
                     src={cat.image.panel}
                     alt={cat.image.alt}
@@ -65,7 +64,7 @@ export default function CategoriaPage({
                   />
                 </div>
               ) : (
-                <div className="flex aspect-[2/3] items-center justify-center overflow-hidden rounded-sm border border-camadel-line bg-camadel-charcoal2">
+                <div className="flex aspect-[2/3] items-center justify-center overflow-hidden rounded-xl border border-camadel-line bg-camadel-charcoal2">
                   <div className="absolute inset-0 bg-carbon-weave opacity-40" />
                   <Icon size={96} className="relative text-camadel-red" strokeWidth={1} />
                 </div>
@@ -81,8 +80,6 @@ export default function CategoriaPage({
           <CategoryItemsGrid items={cat.items} category={cat.title} categorySlug={cat.slug} />
         </div>
       </section>
-
-      <CTAFinal />
     </main>
   );
 }

@@ -7,7 +7,6 @@ import { ICON_MAP } from "@/lib/icon-map";
 import { PageIntro } from "@/components/camadel/PageIntro";
 import { BlueprintFrame } from "@/components/camadel/BlueprintFrame";
 import { TrustStrip } from "@/components/camadel/TrustStrip";
-import { CTAFinal } from "@/components/camadel/CTAFinal";
 
 export const metadata: Metadata = {
   title: "Área de Atuação",
@@ -24,7 +23,7 @@ export default function AreaAtuacaoPage() {
 
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14">
         <BlueprintFrame label="Cobertura Camadel">
-          <div className="overflow-hidden rounded-sm border border-camadel-line">
+          <div className="overflow-hidden rounded-xl border border-camadel-line">
             <Image
               src={AREA_ATUACAO.image}
               alt={AREA_ATUACAO.imageAlt}
@@ -43,7 +42,7 @@ export default function AreaAtuacaoPage() {
             return (
               <div
                 key={b.title}
-                className="rounded-sm border border-camadel-line bg-camadel-charcoal p-6"
+                className="rounded-xl border border-camadel-line bg-camadel-charcoal p-6"
               >
                 <Icon className="mb-3 text-camadel-red" size={24} />
                 <h3 className="mb-1.5 font-display text-sm font-semibold uppercase tracking-wide text-camadel-silverHi">
@@ -58,7 +57,7 @@ export default function AreaAtuacaoPage() {
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/contato"
-            className="inline-flex items-center gap-2 rounded-sm bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark"
+            className="inline-flex items-center gap-2 rounded-full bg-camadel-red px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark"
           >
             Falar com consultor agora
           </Link>
@@ -66,7 +65,7 @@ export default function AreaAtuacaoPage() {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-sm border border-white/25 px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-camadel-silverHi transition-colors hover:border-camadel-red hover:text-camadel-red"
           >
             <MessageCircle size={18} />
             WhatsApp
@@ -75,7 +74,6 @@ export default function AreaAtuacaoPage() {
       </section>
 
       <TrustStrip />
-      <CTAFinal />
     </main>
   );
 }
