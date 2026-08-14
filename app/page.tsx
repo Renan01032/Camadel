@@ -1,8 +1,10 @@
 import { Hero } from "@/components/camadel/Hero";
 import { Diferenciais } from "@/components/camadel/Diferenciais";
 import { CategoriasGrid } from "@/components/camadel/CategoriasGrid";
+import { QuemSomosSection } from "@/components/camadel/QuemSomosSection";
+import { AreaAtuacaoSection } from "@/components/camadel/AreaAtuacaoSection";
 import { MarcasParceiras } from "@/components/camadel/MarcasParceiras";
-import { QuickLeadForm } from "@/components/camadel/QuickLeadForm";
+import { ContatoSection } from "@/components/camadel/ContatoSection";
 
 export default function HomePage() {
   return (
@@ -10,8 +12,10 @@ export default function HomePage() {
       <Hero />
       <Diferenciais />
       <CategoriasGrid />
+      <QuemSomosSection />
+      <AreaAtuacaoSection />
       <MarcasParceiras />
-      <QuickLeadForm />
+      <ContatoSection />
     </main>
   );
 }

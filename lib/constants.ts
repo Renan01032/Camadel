@@ -16,10 +16,10 @@ export const CONTACT_ADDRESS = "ABC Paulista, São Paulo — SP";
 
 export const NAV_LINKS = [
   { label: "Início", href: "/" },
-  { label: "Quem Somos", href: "/quem-somos" },
+  { label: "Quem Somos", href: "/#quem-somos" },
   { label: "Catálogo", href: "/catalogo" },
-  { label: "Área de Atuação", href: "/area-atuacao" },
-  { label: "Contato", href: "/contato" },
+  { label: "Área de Atuação", href: "/#area-atuacao" },
+  { label: "Contato", href: "/#contato" },
 ] as const;
 
 // -----------------------------------------------------------------------

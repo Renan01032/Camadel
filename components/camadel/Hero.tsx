@@ -81,7 +81,7 @@ export function Hero() {
               Conheça nosso catálogo <ArrowRight size={16} />
             </Link>
             <Link
-              href="/contato"
+              href="/#contato"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-camadel-red hover:text-camadel-red"
             >
               Fale com a Camadel

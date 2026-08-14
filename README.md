@@ -154,33 +154,56 @@ git push
 - Ponto focal ajustável em `object-[50%_38%]` dentro de `Hero.tsx`, caso
   quiser deslocar o enquadramento para um lado.
 
+## Sexta rodada — estrutura de página única
+
+Quem Somos, Área de Atuação e Contato deixaram de ser páginas próprias e
+viraram **seções da Home**, com âncora (`#quem-somos`, `#area-atuacao`,
+`#contato`). O Catálogo continua como páginas separadas (índice + uma
+rota por categoria) — faz sentido manter separado por ter bem mais
+conteúdo e ser o principal ponto de navegação/SEO do site.
+
+- O menu (`NAV_LINKS` em `lib/constants.ts`) agora aponta para
+  `/#quem-somos`, `/#area-atuacao`, `/#contato`. Funciona tanto estando na
+  Home (rolagem suave até a seção) quanto em outra página, como uma
+  categoria do catálogo (navega para a Home e desce até a seção).
+- Todo botão que antes levava para `/contato` (header, hero, painel de
+  cotação, etc.) agora leva para `/#contato`.
+- O formulário rápido da home (`QuickLeadForm`) foi removido — com o
+  formulário completo de Contato já na mesma página logo abaixo, os dois
+  juntos ficavam redundantes (mesmo motivo da remoção do CTA duplicado na
+  rodada anterior).
+- Cada seção tem `scroll-mt-24` para não ficar escondida atrás do menu
+  fixo ao clicar num link do menu.
+- Conferido que a Home ficou com exactly um `<h1>` (o do Hero) — as
+  seções internas usam `<h2>`, correto para SEO/acessibilidade.
+
 ## Estrutura
 
 ```
 app/
   layout.tsx              # fontes (self-hosted @fontsource), metadata, providers
-  page.tsx                 # Home
-  quem-somos/page.tsx
+  page.tsx                 # Home — Hero, Diferenciais, Categorias, Quem Somos,
+                            # Área de Atuação, Marcas, Contato (tudo em uma página)
   catalogo/page.tsx          # índice de categorias
   catalogo/[categoria]/page.tsx  # página dinâmica por categoria (7 rotas)
-  area-atuacao/page.tsx
-  contato/page.tsx
   globals.css
 components/camadel/
   Header.tsx                # navbar fixa, dropdown de catálogo, ícone de cotação
   Footer.tsx
-  Hero.tsx                   # hero com painel de imagem "moldura de projeto"
+  Hero.tsx                   # hero em tela cheia
   Diferenciais.tsx             # 5 selos (3 fotos reais + 2 ícones no mesmo padrão)
   CategoriasGrid.tsx / CategoryCard.tsx
+  QuemSomosSection.tsx           # seção "Quem Somos" (âncora #quem-somos)
+  AreaAtuacaoSection.tsx           # seção "Área de Atuação" (âncora #area-atuacao)
+  ContatoSection.tsx                 # seção "Contato" (âncora #contato)
   MarcasParceiras.tsx
-  QuickLeadForm.tsx             # formulário rápido da home -> WhatsApp
-  ContactForm.tsx                 # formulário completo da página de contato -> WhatsApp
-  AddToQuoteButton.tsx              # botão reutilizável "Adicionar à cotação"
-  CategoryItemsGrid.tsx              # grade de itens de uma categoria
-  CatalogSidebar.tsx                   # navegação entre categorias
-  QuoteWidget.tsx                        # botão flutuante + painel da lista de cotação
-  SplitPanel.tsx / PageIntro.tsx           # blocos reutilizáveis de cabeçalho de página
-  BlueprintFrame.tsx / RulerDivider.tsx      # elementos de assinatura visual (régua/planta)
+  ContactForm.tsx                      # formulário completo -> WhatsApp (usado na ContatoSection)
+  AddToQuoteButton.tsx                   # botão reutilizável "Adicionar à cotação"
+  CategoryItemsGrid.tsx                    # grade de itens de uma categoria
+  CatalogSidebar.tsx                         # navegação entre categorias
+  QuoteWidget.tsx                              # botão flutuante + painel da lista de cotação
+  SplitPanel.tsx / PageIntro.tsx                 # blocos reutilizáveis (PageIntro só no Catálogo)
+  BlueprintFrame.tsx / RulerDivider.tsx            # elementos de assinatura visual (régua/planta)
 lib/
   constants.ts              # todo o conteúdo textual e dados de categorias/catálogo
   quote-context.tsx           # contexto React + persistência em localStorage

@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import { BlueprintFrame } from "./BlueprintFrame";
 
 export function SplitPanel({
+  id,
   eyebrow,
   title,
   children,
@@ -15,6 +16,7 @@ export function SplitPanel({
   frameLabel,
   imageClassName = "aspect-[2/3]",
 }: {
+  id?: string;
   eyebrow: string;
   title: string;
   children: ReactNode;
@@ -25,7 +27,7 @@ export function SplitPanel({
   imageClassName?: string;
 }) {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24">
+    <section id={id} className="mx-auto max-w-7xl scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24">
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <motion.div
           initial={{ opacity: 0, x: reverse ? 24 : -24 }}
@@ -35,7 +37,7 @@ export function SplitPanel({
           className={reverse ? "lg:order-2" : ""}
         >
           <p className="eyebrow">{eyebrow}</p>
-          <h1 className="section-title">{title}</h1>
+          <h2 className="section-title">{title}</h2>
           <div className="mt-6 flex flex-col gap-4 text-sm leading-relaxed text-camadel-muted sm:text-base">
             {children}
           </div>

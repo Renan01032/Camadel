@@ -116,7 +116,7 @@ export function Header() {
           </button>
 
           <Link
-            href="/contato"
+            href="/#contato"
             className="hidden items-center rounded-full bg-camadel-red px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wide text-white transition hover:bg-camadel-redDark sm:inline-flex"
           >
             Solicitar Orçamento
@@ -170,13 +170,19 @@ export function Header() {
               );
             }
             return (
-              <Link key={link.href} href={link.href} className="py-2.5 text-camadel-silverHi">
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="py-2.5 text-camadel-silverHi"
+              >
                 {link.label}
               </Link>
             );
           })}
           <Link
-            href="/contato"
+            href="/#contato"
+            onClick={() => setMobileOpen(false)}
             className="mt-2 inline-flex items-center justify-center rounded-full bg-camadel-red px-5 py-3 font-display text-xs font-bold uppercase tracking-wide text-white"
           >
             Solicitar Orçamento

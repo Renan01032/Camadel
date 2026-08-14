@@ -169,7 +169,7 @@ export function QuoteWidget() {
                   </a>
                   <div className="mt-3 flex items-center justify-between gap-3">
                     <Link
-                      href="/contato"
+                      href="/#contato"
                       onClick={closeDrawer}
                       className="text-xs text-camadel-muted underline-offset-4 hover:text-camadel-silverHi hover:underline"
                     >
