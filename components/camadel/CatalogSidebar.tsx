@@ -4,7 +4,7 @@ import { ICON_MAP } from "@/lib/icon-map";
 
 export function CatalogSidebar({ activeSlug }: { activeSlug: string }) {
   return (
-    <nav aria-label="Categorias do catálogo">
+    <nav aria-label="Categorias do catálogo" className="min-w-0">
       {/* Mobile: chips horizontais */}
       <div className="mb-8 flex gap-2 overflow-x-auto pb-2 lg:hidden">
         {CATEGORIES.map((cat) => (

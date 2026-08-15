@@ -53,29 +53,34 @@ export default function CategoriaPage({
 
           <div className="mx-auto w-full max-w-sm lg:mx-0 lg:max-w-none">
             <BlueprintFrame label={cat.navLabel}>
-              {cat.image ? (
-                <div className="overflow-hidden rounded-xl border border-camadel-line">
+              {/* Box de imagem com tamanho fixo (aspect-ratio + fill) — padrão
+                  único para todas as categorias do catálogo, independente das
+                  dimensões reais do arquivo de origem. */}
+              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-xl border border-camadel-line bg-camadel-charcoal2">
+                {cat.image ? (
                   <Image
                     src={cat.image.panel}
                     alt={cat.image.alt}
-                    width={1000}
-                    height={1500}
-                    className="aspect-[2/3] w-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 384px, 420px"
+                    className="object-cover"
                   />
-                </div>
-              ) : (
-                <div className="flex aspect-[2/3] items-center justify-center overflow-hidden rounded-xl border border-camadel-line bg-camadel-charcoal2">
-                  <div className="absolute inset-0 bg-carbon-weave opacity-40" />
-                  <Icon size={96} className="relative text-camadel-red" strokeWidth={1} />
-                </div>
-              )}
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-carbon-weave opacity-40" />
+                    <div className="relative flex h-full items-center justify-center">
+                      <Icon size={96} className="text-camadel-red" strokeWidth={1} />
+                    </div>
+                  </>
+                )}
+              </div>
             </BlueprintFrame>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 sm:pb-24">
-        <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
+        <div className="grid min-w-0 gap-10 lg:grid-cols-[220px_1fr]">
           <CatalogSidebar activeSlug={cat.slug} />
           <CategoryItemsGrid items={cat.items} category={cat.title} categorySlug={cat.slug} />
         </div>
